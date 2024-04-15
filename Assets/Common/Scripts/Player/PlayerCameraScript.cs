@@ -15,6 +15,9 @@ public class PlayerCameraScript : MonoBehaviour
 
     private GameObject _body;
 
+    public Vector3 GetCameraPos() => transform.position;
+    public Vector3 GetViewVector() => transform.forward;
+
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -26,10 +29,7 @@ public class PlayerCameraScript : MonoBehaviour
     {
         float mouseX = Input.GetAxis("Mouse X") * sensX * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * sensY * Time.deltaTime;
-        if(mouseX != 0 || mouseY != 0)
-        {
-            Debug.Log("Mouse X: " + mouseX + " Mouse Y: " + mouseY);
-        }
+
         yRotation += mouseX;
         xRotation -= mouseY;
 

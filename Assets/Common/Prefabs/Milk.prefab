@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 57499904365753501}
   - component: {fileID: 3230064854279778585}
   - component: {fileID: 8269064422823718558}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 5768867099761906623}
   - component: {fileID: 6798159314995425661}
   - component: {fileID: 5865634166091098186}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,7 +220,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8857052277049406303}
   - component: {fileID: 520461547766241857}
-  m_Layer: 0
+  - component: {fileID: 2776516025333219694}
+  m_Layer: 6
   m_Name: Milk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -271,3 +272,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2776516025333219694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8653004478357986374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 539414584b4621b419e94b491da7261d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Milk

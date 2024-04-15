@@ -47,7 +47,7 @@ public class PlayerMovementScript : MonoBehaviour
             _rb.velocity *= drag * Time.fixedDeltaTime;
             return;
         }
-        _rb.AddRelativeForce(direction*acceleration);
+        _rb.AddRelativeForce(direction*acceleration*_rb.mass);
         if (_rb.velocity.magnitude > maxSpeed)
         {
             _rb.velocity = _rb.velocity.normalized * maxSpeed;
