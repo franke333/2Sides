@@ -16,13 +16,12 @@ public class GameManager : MonoBehaviour
         if (currentTime > 0)
         {
             currentTime -= 1 * Time.deltaTime;
-            print(currentTime);
         }
         else
         {
             currentTime = 0;
             timer.color = Color.red;
-            print("GAME OVER");
+            Debug.Log("GAME OVER");
         }
 
         int min = Mathf.FloorToInt(currentTime / 60);
