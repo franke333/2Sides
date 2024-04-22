@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
         if (currentTime > 0)
         {
             currentTime -= 1 * Time.deltaTime;
-            print(currentTime);
+            //print(currentTime);
         }
         else
         {
