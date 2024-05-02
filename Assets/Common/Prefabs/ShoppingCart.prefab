@@ -350,6 +350,7 @@ GameObject:
   - component: {fileID: 6780152658724199834}
   - component: {fileID: 8089285468598444203}
   - component: {fileID: 6782762327187329458}
+  - component: {fileID: 3087790767161943203}
   m_Layer: 0
   m_Name: ShoppingCart
   m_TagString: Cart
@@ -390,7 +391,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3623665325164062012}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 40
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -408,7 +409,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &7450167506320611180
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -416,7 +417,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3623665325164062012}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: e9a2cee05e411f6468863196327c3261, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -437,7 +438,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3623665325164062012}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: e9a2cee05e411f6468863196327c3261, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -458,7 +459,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3623665325164062012}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: e9a2cee05e411f6468863196327c3261, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -479,7 +480,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3623665325164062012}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: e9a2cee05e411f6468863196327c3261, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -500,7 +501,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3623665325164062012}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: e9a2cee05e411f6468863196327c3261, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -521,7 +522,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3623665325164062012}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: e9a2cee05e411f6468863196327c3261, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -569,6 +570,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HasMilk: 0
+--- !u!114 &3087790767161943203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3623665325164062012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f7d33c6854f2a54e8a8d2257e2fd92d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _handleGO: {fileID: 3646575877424654714}
+  _allowedDistanceFromPlayer: 5
+  _joint: {fileID: 0}
+  MaxRotationSpeed: 4
+  pushingForce: 250
 --- !u!1 &3646575877424654714
 GameObject:
   m_ObjectHideFlags: 0
