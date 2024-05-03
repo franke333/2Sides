@@ -49,9 +49,11 @@ public class PlayerController : SingletonClass<PlayerController>
 
     private void PlayerInput()
     {
-        foreach(var value in new bool[]{true, false})
-            if(Input.GetMouseButtonDown(value ? 0 : 1) && _currentInteractible != null)
-                _currentInteractible.Interact(value);
+        foreach (var value in new bool[] { true, false })
+            if (Input.GetMouseButtonDown(value ? 0 : 1) && _currentInteractible != null)
+            {
+                _currentInteractible.InteractView(value);
+            }
     }
 
     private void Update()

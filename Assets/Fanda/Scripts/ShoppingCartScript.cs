@@ -97,8 +97,13 @@ public class ShoppingCartScript : SingletonClass<ShoppingCartScript>, IInteracta
         
     }
 
-    public void Interact(bool value)
+    public void InteractView(bool value)
     {
         BeingPushedSimple(value);
+    }
+
+    public void Touch(bool value, Transform h)
+    {
+        throw new System.NotImplementedException();
     }
 }
