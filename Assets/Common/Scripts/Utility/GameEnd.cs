@@ -17,7 +17,7 @@ public class GameEnd : MonoBehaviour
     {
         if (collision.gameObject.tag == "Cart")
         {
-            if (sl.HasMilk)
+            if (sl.HasAllItems)
             {
                 Indicator.GetComponent<Renderer>().material.color = Color.green;
                 Debug.Log("WIN!");
