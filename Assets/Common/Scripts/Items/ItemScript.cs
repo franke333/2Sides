@@ -23,10 +23,9 @@ public class ItemScript : MonoBehaviour, IInteractable
 
         _highlightScript = gameObject.AddComponent<HighlightScript>();
         _highlightScript.Init(_meshRenderers, Color.yellow);
-    }
 
-    //Do this in Manager
-    public static ItemScript currentHoverOver;
+        gameObject.AddComponent<HittingGroundSusScript>();
+    }
 
     public void HoverOver()
     {
@@ -40,7 +39,7 @@ public class ItemScript : MonoBehaviour, IInteractable
 
     public void InteractView(bool value)
     {
-        throw new System.NotImplementedException();
+        //Do nothing
     }
     public void Touch(bool value, Transform h)
     {

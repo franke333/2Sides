@@ -25,21 +25,10 @@ public class ArmsMovement : MonoBehaviour
         direction = mousePos;
         targetRotation = Quaternion.LookRotation(direction);
 
-        if (!RightArm)
+        if (Input.GetMouseButton(RightArm ? 1 : 0))
         {
-            if (Input.GetMouseButton(0) && transform.name == "LeftArmPivot")
-            {
-                transform.GetComponentInChildren<Collider>().enabled = true;
-                transform.rotation = targetRotation;
-            }
-        }
-        else
-        {
-            if (Input.GetMouseButton(1) && transform.name == "RightArmPivot")
-            {
-                transform.GetComponentInChildren<Collider>().enabled = true;
-                transform.rotation = targetRotation;
-            }
+            transform.GetComponentInChildren<Collider>().enabled = true;
+            transform.rotation = targetRotation;
         }
 
         GoBack();
@@ -47,19 +36,7 @@ public class ArmsMovement : MonoBehaviour
 
     void GoBack()
     {
-        if (Input.GetMouseButton(0) && !Input.GetMouseButton(1) && transform.name == "RightArmPivot")
-        {
-            _pickUp.DropItem();
-            transform.localRotation = Quaternion.Euler(80.7f, 0f, 0f);
-            transform.GetComponentInChildren<Collider>().enabled = false;
-        }
-        else if (!Input.GetMouseButton(0) && Input.GetMouseButton(1) && transform.name == "LeftArmPivot")
-        {
-            _pickUp.DropItem();
-            transform.localRotation = Quaternion.Euler(80.7f, 0f, 0f);
-            transform.GetComponentInChildren<Collider>().enabled = false;
-        }
-        else if (!Input.GetMouseButton(0) && !Input.GetMouseButton(1))
+        if (!Input.GetMouseButton(RightArm ? 1 : 0))
         {
             _pickUp.DropItem();
             transform.localRotation = Quaternion.Euler(80.7f, 0f, 0f);
