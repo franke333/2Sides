@@ -9,7 +9,7 @@ public class HittingGroundSusScript : MonoBehaviour
 
     private float _currentCooldown = 0f;
 
-    public BoxCollider[] colliders;
+    public Collider[] colliders;
 
 
 
@@ -26,7 +26,7 @@ public class HittingGroundSusScript : MonoBehaviour
 
     private void Start()
     {
-        colliders = GetComponentsInChildren<BoxCollider>();
+        colliders = GetComponentsInChildren<Collider>();
     }
 
     private void Update()
@@ -40,7 +40,8 @@ public class HittingGroundSusScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             //TODO alert security
-            ReportSeeingHittingGround();
+            //ReportSeeingHittingGround();
+            SecurityManager.Instance.securities.ForEach(security => security.AlertItemDrop(this));
         }
     }
 }

@@ -22,10 +22,13 @@ public class PlayerController : SingletonClass<PlayerController>
     private Transform _inFrontOfPlayer;
     public Transform InFrontOfPlayer { get => _inFrontOfPlayer; }
 
+    public Collider[] colliders;
+
     private void Start()
     {
         _playerMovementScript = GetComponent<PlayerMovementScript>();
         _playerCameraScript = GetComponentInChildren<PlayerCameraScript>();
+        colliders = GetComponentsInChildren<Collider>();
     }
 
     private void HoverOverCheck()
