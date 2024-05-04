@@ -199,7 +199,7 @@ GameObject:
   - component: {fileID: 8857052277049406303}
   - component: {fileID: 520461547766241857}
   - component: {fileID: 2776516025333219694}
-  - component: {fileID: 1259221204930782241}
+  - component: {fileID: 3213988450830058998}
   m_Layer: 6
   m_Name: Milk
   m_TagString: Milk
@@ -264,14 +264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Milk
-  LeftArm: {fileID: 0}
-  RightArm: {fileID: 0}
-  Head: {fileID: 0}
-  Body: {fileID: 0}
-  HoldPosLeft: {fileID: 0}
-  HoldPosRight: {fileID: 0}
-  _joint: {fileID: 0}
---- !u!65 &1259221204930782241
+--- !u!65 &3213988450830058998
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -290,5 +283,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.2011788, y: 0.50176775, z: 0.19900699}
-  m_Center: {x: -0.08129144, y: -0.0005891919, z: -0.14964493}
+  m_Size: {x: 0.20049924, y: 0.6032779, z: 0.20107979}
+  m_Center: {x: -0.083196014, y: 0.049299166, z: -0.15024719}

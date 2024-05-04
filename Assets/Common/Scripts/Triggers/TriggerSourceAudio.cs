@@ -74,11 +74,33 @@ public class TriggerSourceAudio : MonoBehaviour, IInteractable
     {
     }
 
-    public void HoverOut() { 
+    public void HoverOut()
+    {
     }
 
-    public void Interact(bool value)
+    public void InteractView(bool value)
     {
-        _punching = true;
+    }
+
+    public void Touch(bool value, Transform h)
+    {
+        if (value)
+        {
+            Debug.Log("chytl jsem item");
+            foreach(var collider in GetComponentsInChildren<Collider>())
+                Physics.IgnoreCollision(PlayerController.Instance.Body.GetComponent<Collider>(), collider, true);
+            transform.GetComponent<Rigidbody>().isKinematic = true;
+            transform.parent = h.transform;
+            transform.position = h.transform.position;
+            return;
+        }
+        else
+        {
+            Debug.Log("Pustil jsem item");
+            transform.parent = null;
+            transform.GetComponent<Rigidbody>().isKinematic = false;
+            foreach (var collider in GetComponentsInChildren<Collider>())
+                Physics.IgnoreCollision(PlayerController.Instance.Body.GetComponent<Collider>(), collider, false);
+        }
     }
 }

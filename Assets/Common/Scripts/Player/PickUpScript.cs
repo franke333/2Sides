@@ -23,6 +23,7 @@ public class PickUpScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     {
+        // 6 == layer.pickable
         if (col.gameObject.layer == 6 && touched == false)
         {
             if (transform.name == "LeftArm") holdPos = HoldPosLeft;

@@ -7,7 +7,6 @@ using UnityEngine;
 public class ItemScript : MonoBehaviour, IInteractable
 {
     public string itemName;
-    public GameObject Player;
 
     MeshRenderer[] _meshRenderers;
     HighlightScript _highlightScript;
@@ -52,7 +51,7 @@ public class ItemScript : MonoBehaviour, IInteractable
         if (value)
         {
             Debug.Log("chytl jsem item");
-            Physics.IgnoreCollision(Player.GetComponent<Collider>(), transform.GetComponent<Collider>(), true);
+            Physics.IgnoreCollision(PlayerController.Instance.Body.GetComponent<Collider>(), transform.GetComponent<Collider>(), true);
             transform.GetComponent<Rigidbody>().isKinematic = true;
             transform.parent = h.transform;
             transform.position = h.transform.position;
@@ -63,7 +62,7 @@ public class ItemScript : MonoBehaviour, IInteractable
             Debug.Log("Pustil jsem item");
             transform.parent = null;
             transform.GetComponent<Rigidbody>().isKinematic = false;
-            Physics.IgnoreCollision(Player.GetComponent<Collider>(), transform.GetComponent<Collider>(), false);
+            Physics.IgnoreCollision(PlayerController.Instance.Body.GetComponent<Collider>(), transform.GetComponent<Collider>(), false);
         }
     }
 }

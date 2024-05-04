@@ -14,6 +14,8 @@ public class PlayerController : SingletonClass<PlayerController>
 
     public GameObject DEBUG_CART;
 
+    public GameObject Body;
+
     //This is used for shopping cart to know where it should be
     [SerializeField]
     private Transform _inFrontOfPlayer;
