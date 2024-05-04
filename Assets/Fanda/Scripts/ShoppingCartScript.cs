@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -49,6 +50,17 @@ public class ShoppingCartScript : SingletonClass<ShoppingCartScript>, IInteracta
     private void Update()
     {
         //BeingPushedAdvanced();
+    }
+
+    public void DoAFlip()
+    {
+        //deattach player or he will be reaching outer space
+        BeingPushedSimple(false);
+
+        DOTween.Sequence()
+            .Append(_rb.DOMoveY(2, 0.5f).SetEase(Ease.OutBounce))
+            .Append(_rb.DORotate(new Vector3(0, 0, 360), 0.5f, RotateMode.FastBeyond360))
+            .Append(_rb.DOMoveY(0, 0.5f).SetEase(Ease.OutBounce));
     }
 
     private void BeingPushedSimple(bool value)
