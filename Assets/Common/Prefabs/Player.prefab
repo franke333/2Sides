@@ -77,8 +77,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4321cf2ed1c168346a5703b6bad7ca18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RightArm: {fileID: 6456347682049249548}
-  LeftArm: {fileID: 6948802114377723737}
+  RightArm: 0
 --- !u!1 &3270856239994506259
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,6 +174,7 @@ MonoBehaviour:
     m_Bits: 65
   DEBUG_CART: {fileID: 0}
   Body: {fileID: 4506869585453698568}
+  Head: {fileID: 4077827937267304622}
   _inFrontOfPlayer: {fileID: 0}
 --- !u!1 &3403870532858515841
 GameObject:
@@ -484,8 +484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4321cf2ed1c168346a5703b6bad7ca18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RightArm: {fileID: 6456347682049249548}
-  LeftArm: {fileID: 6948802114377723737}
+  RightArm: 1
 --- !u!1 &6456347682049249548
 GameObject:
   m_ObjectHideFlags: 0
@@ -604,7 +603,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f31a8633ffed4ef40865b0baac047143, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  touched: 0
   HoldPosLeft: {fileID: 927902178529614453}
   HoldPosRight: {fileID: 4256396315583407760}
 --- !u!1 &6948802114377723737
@@ -725,7 +723,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f31a8633ffed4ef40865b0baac047143, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  touched: 0
   HoldPosLeft: {fileID: 927902178529614453}
   HoldPosRight: {fileID: 4256396315583407760}
 --- !u!1 &8266724646779346325

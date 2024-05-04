@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class ArmsMovement : MonoBehaviour
 {
-    public GameObject RightArm;
-    public GameObject LeftArm;
+    public bool RightArm;
 
     private PlayerCameraScript _playerCameraScript;
     private Vector3 mousePos;
@@ -17,33 +16,28 @@ public class ArmsMovement : MonoBehaviour
     {
         _pickUp = GetComponentInChildren<PickUpScript>();
         _playerCameraScript = FindObjectOfType<PlayerCameraScript>();
-        RightArm.GetComponent<Collider>().enabled = false;
-        LeftArm.GetComponent<Collider>().enabled = false;
+        transform.GetComponentInChildren<Collider>().enabled = false;
     }
 
     private void Update()
     {
-        if (Input.GetMouseButton(0))
-        {
-            mousePos = _playerCameraScript.GetViewVector();
-            direction = mousePos;
-            targetRotation = Quaternion.LookRotation(direction);
+        mousePos = _playerCameraScript.GetViewVector();
+        direction = mousePos;
+        targetRotation = Quaternion.LookRotation(direction);
 
-            if (transform.name == "LeftArmPivot")
+        if (!RightArm)
+        {
+            if (Input.GetMouseButton(0) && transform.name == "LeftArmPivot")
             {
-                LeftArm.GetComponent<Collider>().enabled = true;
+                transform.GetComponentInChildren<Collider>().enabled = true;
                 transform.rotation = targetRotation;
             }
         }
-        if (Input.GetMouseButton(1))
+        else
         {
-            mousePos = _playerCameraScript.GetViewVector();
-            direction = mousePos;
-            targetRotation = Quaternion.LookRotation(direction);
-
-            if (transform.name == "RightArmPivot")
+            if (Input.GetMouseButton(1) && transform.name == "RightArmPivot")
             {
-                RightArm.GetComponent<Collider>().enabled = true;
+                transform.GetComponentInChildren<Collider>().enabled = true;
                 transform.rotation = targetRotation;
             }
         }
@@ -57,20 +51,19 @@ public class ArmsMovement : MonoBehaviour
         {
             _pickUp.DropItem();
             transform.localRotation = Quaternion.Euler(80.7f, 0f, 0f);
-            RightArm.GetComponent<Collider>().enabled = false;
+            transform.GetComponentInChildren<Collider>().enabled = false;
         }
         else if (!Input.GetMouseButton(0) && Input.GetMouseButton(1) && transform.name == "LeftArmPivot")
         {
             _pickUp.DropItem();
             transform.localRotation = Quaternion.Euler(80.7f, 0f, 0f);
-            LeftArm.GetComponent<Collider>().enabled = false;
+            transform.GetComponentInChildren<Collider>().enabled = false;
         }
         else if (!Input.GetMouseButton(0) && !Input.GetMouseButton(1))
         {
             _pickUp.DropItem();
             transform.localRotation = Quaternion.Euler(80.7f, 0f, 0f);
-            RightArm.GetComponent<Collider>().enabled = false;
-            LeftArm.GetComponent<Collider>().enabled = false;
+            transform.GetComponentInChildren<Collider>().enabled = false;
         }
     }
 }

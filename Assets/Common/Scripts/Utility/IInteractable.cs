@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public interface IInteractable
@@ -8,4 +9,6 @@ public interface IInteractable
     //value is true if left click, false if right click
     void InteractView(bool value);
     void Touch(bool value, Transform holdPos);
+
+    void Throw();
 }

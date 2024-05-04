@@ -7,16 +7,19 @@ public class PickUpScript : MonoBehaviour
 {
     private IInteractable _currentInteractible;
 
-    public bool touched = false;
+    private bool touched = false;
 
     private Transform holdPos;
     public Transform HoldPosLeft;
     public Transform HoldPosRight;
 
+    private bool rightArmItem;
+
     private void Update()
     {
         if (touched)
         {
+            ThrowItem();
             _currentInteractible.Touch(touched, holdPos);
         }
     }
@@ -26,8 +29,16 @@ public class PickUpScript : MonoBehaviour
         // 6 == layer.pickable
         if (col.gameObject.layer == 6 && touched == false)
         {
-            if (transform.name == "LeftArm") holdPos = HoldPosLeft;
-            else if (transform.name == "RightArm") holdPos = HoldPosRight;
+            if (transform.name == "LeftArm")
+            {
+                holdPos = HoldPosLeft;
+                rightArmItem = false;
+            }
+            else if (transform.name == "RightArm")
+            {
+                holdPos = HoldPosRight;
+                rightArmItem = true;
+            }
             var item = col.GetComponentInParent<IInteractable>();
             _currentInteractible = item;
             touched = true;
@@ -41,6 +52,20 @@ public class PickUpScript : MonoBehaviour
         {
             touched = false;
             _currentInteractible.Touch(touched, holdPos);
+        }
+    }
+
+    public void ThrowItem()
+    {
+        if (Input.GetKeyDown(KeyCode.Q) && rightArmItem == false)
+        {
+            touched = false;
+            _currentInteractible.Throw();
+        }
+        if (Input.GetKeyUp(KeyCode.E) && rightArmItem == true)
+        {
+            touched = false;
+            _currentInteractible.Throw();
         }
     }
 }

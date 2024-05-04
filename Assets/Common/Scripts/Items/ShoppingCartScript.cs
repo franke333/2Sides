@@ -118,4 +118,9 @@ public class ShoppingCartScript : SingletonClass<ShoppingCartScript>, IInteracta
     {
         throw new System.NotImplementedException();
     }
+
+    public void Throw()
+    {
+        throw new System.NotImplementedException();
+    }
 }
