@@ -6,5 +6,6 @@ public interface IInteractable
     void HoverOut();
 
     //value is true if left click, false if right click
-    void Interact(bool value);
+    void InteractView(bool value);
+    void Touch(bool value, Transform holdPos);
 }
