@@ -1,25 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditorInternal.ReorderableList;
 
 public class ArmsMovement : MonoBehaviour
 {
+    public GameObject RightArm;
+    public GameObject LeftArm;
+
     private PlayerCameraScript _playerCameraScript;
     private Vector3 mousePos;
     private Vector3 direction;
     private Quaternion targetRotation;
-    private Quaternion defaultPosL;
-    private Quaternion defaultPosR;
+    private PickUpScript _pickUp;
 
     private void Start()
     {
+        _pickUp = GetComponentInChildren<PickUpScript>();
         _playerCameraScript = FindObjectOfType<PlayerCameraScript>();
-        if (transform.name == "LeftArmPivot")
-        {
-            defaultPosL = transform.rotation;
-        }
-        else defaultPosR = transform.rotation;
+        RightArm.GetComponent<Collider>().enabled = false;
+        LeftArm.GetComponent<Collider>().enabled = false;
     }
 
     private void Update()
@@ -32,6 +31,7 @@ public class ArmsMovement : MonoBehaviour
 
             if (transform.name == "LeftArmPivot")
             {
+                LeftArm.GetComponent<Collider>().enabled = true;
                 transform.rotation = targetRotation;
             }
         }
@@ -43,6 +43,7 @@ public class ArmsMovement : MonoBehaviour
 
             if (transform.name == "RightArmPivot")
             {
+                RightArm.GetComponent<Collider>().enabled = true;
                 transform.rotation = targetRotation;
             }
         }
@@ -54,15 +55,22 @@ public class ArmsMovement : MonoBehaviour
     {
         if (Input.GetMouseButton(0) && !Input.GetMouseButton(1) && transform.name == "RightArmPivot")
         {
+            _pickUp.DropItem();
             transform.localRotation = Quaternion.Euler(80.7f, 0f, 0f);
+            RightArm.GetComponent<Collider>().enabled = false;
         }
         else if (!Input.GetMouseButton(0) && Input.GetMouseButton(1) && transform.name == "LeftArmPivot")
         {
+            _pickUp.DropItem();
             transform.localRotation = Quaternion.Euler(80.7f, 0f, 0f);
+            LeftArm.GetComponent<Collider>().enabled = false;
         }
         else if (!Input.GetMouseButton(0) && !Input.GetMouseButton(1))
         {
+            _pickUp.DropItem();
             transform.localRotation = Quaternion.Euler(80.7f, 0f, 0f);
+            RightArm.GetComponent<Collider>().enabled = false;
+            LeftArm.GetComponent<Collider>().enabled = false;
         }
     }
 }

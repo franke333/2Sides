@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 2369306781159888149}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.15, y: 0.4, z: 1.3}
+  m_LocalPosition: {x: -0.15, y: 0.4, z: 1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -77,6 +77,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4321cf2ed1c168346a5703b6bad7ca18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RightArm: {fileID: 6456347682049249548}
+  LeftArm: {fileID: 6948802114377723737}
 --- !u!1 &3270856239994506259
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,7 +92,7 @@ GameObject:
   - component: {fileID: 2950181817400420642}
   - component: {fileID: 944062281369667623}
   m_Layer: 3
-  m_Name: Player
+  m_Name: Player 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -481,6 +483,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4321cf2ed1c168346a5703b6bad7ca18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RightArm: {fileID: 6456347682049249548}
+  LeftArm: {fileID: 6948802114377723737}
 --- !u!1 &6456347682049249548
 GameObject:
   m_ObjectHideFlags: 0
@@ -493,8 +497,9 @@ GameObject:
   - component: {fileID: 7869563794988207112}
   - component: {fileID: 8020609147351145727}
   - component: {fileID: 1837609906499564301}
+  - component: {fileID: 1024350600350759675}
   m_Layer: 3
-  m_Name: Cube
+  m_Name: RightArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -580,12 +585,26 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 63
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1024350600350759675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6456347682049249548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f31a8633ffed4ef40865b0baac047143, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HoldPosLeft: {fileID: 927902178529614453}
+  HoldPosRight: {fileID: 4256396315583407760}
 --- !u!1 &6948802114377723737
 GameObject:
   m_ObjectHideFlags: 0
@@ -598,8 +617,9 @@ GameObject:
   - component: {fileID: 7816604894271627021}
   - component: {fileID: 8627874942637098924}
   - component: {fileID: 9178961202491939778}
+  - component: {fileID: 3590661376155227540}
   m_Layer: 3
-  m_Name: Cube
+  m_Name: LeftArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -685,12 +705,26 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 63
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3590661376155227540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6948802114377723737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f31a8633ffed4ef40865b0baac047143, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HoldPosLeft: {fileID: 927902178529614453}
+  HoldPosRight: {fileID: 4256396315583407760}
 --- !u!1 &8266724646779346325
 GameObject:
   m_ObjectHideFlags: 0
@@ -764,7 +798,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 127
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
