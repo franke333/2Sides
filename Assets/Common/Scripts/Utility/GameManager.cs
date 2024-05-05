@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : SingletonClass<GameManager>
-{
+{ 
+
     [SerializeField] float currentTime;
 
     [SerializeField] TextMeshProUGUI timer;
@@ -21,7 +23,7 @@ public class GameManager : SingletonClass<GameManager>
         {
             currentTime = 0;
             timer.color = Color.red;
-            Debug.Log("GAME OVER");
+            SceneManager.LoadScene("LooseScene");
         }
 
         int min = Mathf.FloorToInt(currentTime / 60);

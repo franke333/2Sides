@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameEnd : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class GameEnd : MonoBehaviour
             if (sl.HasAllItems)
             {
                 Indicator.GetComponent<Renderer>().material.color = Color.green;
-                Debug.Log("WIN!");
+                SceneManager.LoadScene("WinScene");
             }
             else Indicator.GetComponent<Renderer>().material.color = Color.red;
         }

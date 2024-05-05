@@ -1192,6 +1192,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 608417163592792727, guid: ba7b89bcf418f9444b9c19b94ff768fc,
+        type: 3}
+      propertyPath: m_text
+      value: Milk
+      objectReference: {fileID: 0}
+    - target: {fileID: 1867379001444953138, guid: ba7b89bcf418f9444b9c19b94ff768fc,
+        type: 3}
+      propertyPath: m_text
+      value: Milk
+      objectReference: {fileID: 0}
     - target: {fileID: 5186746996036148337, guid: ba7b89bcf418f9444b9c19b94ff768fc,
         type: 3}
       propertyPath: m_Name

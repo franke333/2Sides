@@ -1784,6 +1784,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 53237604762509999, guid: 7d83120bcb1d2f44c8f12b4a1364aa26,
+        type: 3}
+      propertyPath: m_text
+      value: Bread
+      objectReference: {fileID: 0}
+    - target: {fileID: 1235930444333806602, guid: 7d83120bcb1d2f44c8f12b4a1364aa26,
+        type: 3}
+      propertyPath: m_text
+      value: Bread
+      objectReference: {fileID: 0}
     - target: {fileID: 4896548452539633116, guid: 7d83120bcb1d2f44c8f12b4a1364aa26,
         type: 3}
       propertyPath: m_LocalPosition.x

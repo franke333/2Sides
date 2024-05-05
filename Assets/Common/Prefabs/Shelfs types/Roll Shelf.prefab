@@ -581,6 +581,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Roll Shelf
       objectReference: {fileID: 0}
+    - target: {fileID: 7256167430959182561, guid: 94c216102eea5694cb09dd87cb0325e6,
+        type: 3}
+      propertyPath: m_text
+      value: Rolls
+      objectReference: {fileID: 0}
+    - target: {fileID: 8442242368261858372, guid: 94c216102eea5694cb09dd87cb0325e6,
+        type: 3}
+      propertyPath: m_text
+      value: Rolls
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 7685251906761032976, guid: 94c216102eea5694cb09dd87cb0325e6, type: 3}

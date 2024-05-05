@@ -12,7 +12,7 @@ public class ShoppingList : MonoBehaviour
     {
         if (shoppingList.ContainsKey("Milk") && shoppingList.ContainsKey("Apple") && shoppingList.ContainsKey("Bread"))
         {
-            if (shoppingList["Milk"] == 2)
+            if (shoppingList["Milk"] == 2 && shoppingList["Apple"] == 1 && shoppingList["Bread"] == 1)
             {
                 HasAllItems = true;
             }
