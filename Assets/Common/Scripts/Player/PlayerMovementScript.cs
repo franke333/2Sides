@@ -11,8 +11,13 @@ public class PlayerMovementScript : MonoBehaviour
     public float acceleration = 1f;
     public float drag = 0.99f;
 
+    public float runSpeed = 1.5f;
+
     public float verticalInput { get; private set; }
     public float horizontalInput { get; private set; }
+
+    private bool _sprinting = false;
+    private bool _crouching = false;
 
     private GameObject _headGO;
 
@@ -38,6 +43,8 @@ public class PlayerMovementScript : MonoBehaviour
     {
         verticalInput = Input.GetAxis("Vertical");
         horizontalInput = Input.GetAxis("Horizontal");
+        _sprinting = Input.GetKey(KeyCode.LeftShift);
+        _crouching = Input.GetKey(KeyCode.LeftControl);
     }
 
     void ApplyFixedMovement(Vector3 direction)
@@ -48,9 +55,11 @@ public class PlayerMovementScript : MonoBehaviour
             return;
         }
         _rb.AddRelativeForce(direction*acceleration*_rb.mass);
-        if (_rb.velocity.magnitude > maxSpeed)
+
+        var sprintMultiplier = _sprinting ? runSpeed : 1;
+        if (_rb.velocity.magnitude > maxSpeed * sprintMultiplier)
         {
-            _rb.velocity = _rb.velocity.normalized * maxSpeed;
+            _rb.velocity = _rb.velocity.normalized * maxSpeed * sprintMultiplier;
         }
     }
 

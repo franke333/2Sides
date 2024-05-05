@@ -29,6 +29,7 @@ public class PickUpScript : MonoBehaviour
         // 6 == layer.pickable
         if (col.gameObject.layer == 6 && touched == false)
         {
+            Debug.Log("Touched " + col.name);
             if (transform.name == "LeftArm")
             {
                 holdPos = HoldPosLeft;

@@ -23,6 +23,8 @@ public class ShoppingCartScript : SingletonClass<ShoppingCartScript>, IInteracta
     public float MaxRotationSpeed = 2f;
     public float pushingForce = 200f;
 
+    private bool _locked = false;
+
     private void Start()
     {
         _handleMR = _handleGO?.GetComponent<MeshRenderer>();
@@ -52,10 +54,26 @@ public class ShoppingCartScript : SingletonClass<ShoppingCartScript>, IInteracta
         //BeingPushedAdvanced();
     }
 
+    //Oh god this needs to be refactored
+    private void Lock()
+    {
+        _locked = true;
+    }
+
+    private void Unlock()
+    {
+        _locked = false;
+    }
+
     public void DoAFlip()
     {
+        if (_locked)
+            return;
+        _locked = true;
         //deattach player or he will be reaching outer space
         BeingPushedSimple(false);
+
+        Invoke("Unlock", 1f);
 
         DOTween.Sequence()
             .Append(_rb.DOMoveY(2, 0.5f).SetEase(Ease.OutBounce))
@@ -72,6 +90,8 @@ public class ShoppingCartScript : SingletonClass<ShoppingCartScript>, IInteracta
         
         if(value)
         {
+            if (_locked)
+                return;
             Debug.Log("Shopping cart is being pushed");
             _joint = transform.AddComponent<FixedJoint>();
             _joint.connectedBody = PlayerController.Instance.GetComponent<Rigidbody>();
@@ -111,16 +131,15 @@ public class ShoppingCartScript : SingletonClass<ShoppingCartScript>, IInteracta
 
     public void InteractView(bool value)
     {
-        BeingPushedSimple(value);
+
     }
 
     public void Touch(bool value, Transform h)
     {
-        throw new System.NotImplementedException();
+        BeingPushedSimple(value);
     }
 
     public void Throw()
     {
-        throw new System.NotImplementedException();
     }
 }

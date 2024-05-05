@@ -156,6 +156,7 @@ MonoBehaviour:
   maxSpeed: 2.5
   acceleration: 100
   drag: 0.99
+  runSpeed: 1.5
 --- !u!114 &944062281369667623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,6 +177,7 @@ MonoBehaviour:
   Body: {fileID: 4506869585453698568}
   Head: {fileID: 4077827937267304622}
   _inFrontOfPlayer: {fileID: 0}
+  colliders: []
 --- !u!1 &3403870532858515841
 GameObject:
   m_ObjectHideFlags: 0
