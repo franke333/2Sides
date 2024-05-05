@@ -24,6 +24,8 @@ public class PlayerController : SingletonClass<PlayerController>
 
     public Collider[] colliders;
 
+
+
     private void Start()
     {
         _playerMovementScript = GetComponent<PlayerMovementScript>();

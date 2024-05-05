@@ -19,6 +19,12 @@ public class PlayerMovementScript : MonoBehaviour
     private bool _sprinting = false;
     private bool _crouching = false;
 
+    [SerializeField]
+    float _crouchYOffset = 0.5f;
+
+    [SerializeField]
+    GameObject _standingBody, _crouchingBody;
+
     private GameObject _headGO;
 
     void LoadComponents()
@@ -63,8 +69,30 @@ public class PlayerMovementScript : MonoBehaviour
         }
     }
 
+    void ProcessCrouching()
+    {
+        if(_crouching == _crouchingBody.activeSelf)
+        {
+            return;
+        }
+
+        if(_crouching)
+        {
+            _standingBody.SetActive(false);
+            _crouchingBody.SetActive(true);
+            transform.position -= Vector3.up * _crouchYOffset;
+        }
+        else
+        {
+            _standingBody.SetActive(true);
+            _crouchingBody.SetActive(false);
+            transform.position += Vector3.up * _crouchYOffset;
+        }
+    }
+
     private void FixedUpdate()
     {
+        ProcessCrouching();
         Vector3 direction = new Vector3(horizontalInput, 0, verticalInput);
         ApplyFixedMovement(direction);
     }
