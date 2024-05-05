@@ -14,6 +14,9 @@ public class PlayerCameraScript : MonoBehaviour
     float yRotation = 0;
 
     private GameObject _body;
+    private Rigidbody _bodyRB;
+    private Camera camera;
+    public GameObject _cameraPoint;
 
     public Vector3 GetCameraPos() => transform.position;
     public Vector3 GetViewVector() => transform.forward;
@@ -23,6 +26,9 @@ public class PlayerCameraScript : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         _body = transform.parent.gameObject;
+        _bodyRB = _body.GetComponent<Rigidbody>();
+        _bodyRB.maxAngularVelocity = 0;
+        camera = Camera.main;
     }
 
     private void Update()
@@ -35,6 +41,16 @@ public class PlayerCameraScript : MonoBehaviour
 
         xRotation = Mathf.Clamp(xRotation, -xClamp, xClamp);
         transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
-        _body.transform.rotation = Quaternion.Euler(0, yRotation, 0);
+        //_body.transform.rotation = Quaternion.Euler(0, yRotation, 0);
+        _bodyRB.rotation = Quaternion.Euler(0, yRotation, 0);
+        camera.transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
+        camera.transform.position = _cameraPoint.transform.position;
+
+ 
+    }
+
+    private void FixedUpdate()
+    {
+        _bodyRB.rotation = Quaternion.Euler(0, yRotation, 0);
     }
 }

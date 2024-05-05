@@ -51,22 +51,16 @@ public class PlayerMovementScript : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
         _sprinting = Input.GetKey(KeyCode.LeftShift);
         _crouching = Input.GetKey(KeyCode.LeftControl);
+        
     }
 
     void ApplyFixedMovement(Vector3 direction)
     {
-        if(direction.magnitude == 0)
-        {
-            _rb.velocity *= drag * Time.fixedDeltaTime;
-            return;
-        }
         _rb.AddRelativeForce(direction*acceleration*_rb.mass);
 
         var sprintMultiplier = _sprinting ? runSpeed : 1;
-        if (_rb.velocity.magnitude > maxSpeed * sprintMultiplier)
-        {
-            _rb.velocity = _rb.velocity.normalized * maxSpeed * sprintMultiplier;
-        }
+        _rb.maxLinearVelocity = maxSpeed * sprintMultiplier;
+
     }
 
     void ProcessCrouching()

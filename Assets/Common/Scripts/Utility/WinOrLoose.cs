@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,7 +14,7 @@ public class WinOrLoose : SingletonClass<WinOrLoose>
         SceneManager.LoadScene("CommonScenev0_6");
     }
 
-    public void OnApplicationQuit()
+    public void Quit()
     {
         Application.Quit();
     }
