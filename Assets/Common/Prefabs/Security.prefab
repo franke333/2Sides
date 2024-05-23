@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3542889784113194526}
   - component: {fileID: 3850813483671107098}
-  m_Layer: 0
+  - component: {fileID: 6980407006779700176}
+  m_Layer: 9
   m_Name: Security
-  m_TagString: Untagged
+  m_TagString: PatrolPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57,6 +58,29 @@ MonoBehaviour:
   _turnAngle: 90
   _turnDuration: 0.6
   _seeRange: 15
+  Chasing: 0
+--- !u!195 &6980407006779700176
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81641217979403970}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &1908822546264079219
 GameObject:
   m_ObjectHideFlags: 0
@@ -69,7 +93,7 @@ GameObject:
   - component: {fileID: 297511783435092656}
   - component: {fileID: 3729750907021045365}
   - component: {fileID: 6540941888237469655}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +198,7 @@ GameObject:
   - component: {fileID: 1255573324843923901}
   - component: {fileID: 1605199571790631384}
   - component: {fileID: 730288677459151750}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Eye (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -277,7 +301,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 417700497737055856}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ArmPivot (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -312,7 +336,7 @@ GameObject:
   - component: {fileID: 7186105406342035983}
   - component: {fileID: 2759846590709788957}
   - component: {fileID: 3151071238014442082}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Dot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -417,7 +441,7 @@ GameObject:
   - component: {fileID: 7471466150324591913}
   - component: {fileID: 4008475013523445757}
   - component: {fileID: 6987505128847542599}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -526,7 +550,7 @@ GameObject:
   - component: {fileID: 1192904860278572465}
   - component: {fileID: 6750528029066123718}
   - component: {fileID: 7081362882538495921}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -631,7 +655,7 @@ GameObject:
   - component: {fileID: 7843367043808900595}
   - component: {fileID: 2738361700350048036}
   - component: {fileID: 1908430068677817880}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -733,7 +757,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8447377460776576587}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ArmPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -768,7 +792,7 @@ GameObject:
   - component: {fileID: 2861252022584528600}
   - component: {fileID: 4030614510966096536}
   - component: {fileID: 7402795490229314375}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Dot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -870,7 +894,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5503884411825714886}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ThirdEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -904,7 +928,7 @@ GameObject:
   - component: {fileID: 5784952578165572921}
   - component: {fileID: 7827366657570117778}
   - component: {fileID: 7913938674669590021}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
