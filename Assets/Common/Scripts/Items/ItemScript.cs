@@ -88,4 +88,19 @@ public class ItemScript : MonoBehaviour, IInteractable
         }
         Physics.IgnoreLayerCollision(3, 6, false);
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("spadl");
+        if (collision.gameObject.tag == "Ground")
+        {
+            transform.gameObject.layer = 10;
+            Debug.Log("dotkl");
+
+            for (int i = 0; i < _meshRenderers.Length; i++)
+            {
+                _meshRenderers[i].material.color = Color.black;
+            }
+        }
+    }
 }

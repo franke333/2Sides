@@ -31,6 +31,7 @@ public class PlayerController : SingletonClass<PlayerController>
         _playerMovementScript = GetComponent<PlayerMovementScript>();
         _playerCameraScript = GetComponentInChildren<PlayerCameraScript>();
         colliders = GetComponentsInChildren<Collider>();
+        Physics.IgnoreLayerCollision(3, 8);
     }
 
     private void HoverOverCheck()

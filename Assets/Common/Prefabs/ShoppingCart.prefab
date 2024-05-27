@@ -569,7 +569,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfb771206d1300d4b80a62906df4dea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HasMilk: 0
+  HasAllItems: 0
+  items:
+  - Milk
+  - Roll
+  - Apple
+  - EggCarton
+  - Water
+  - Bread
+  - Cheese
+  - Banana
 --- !u!114 &3087790767161943203
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -8,26 +8,36 @@ using UnityEngine.SceneManagement;
 public class GameManager : SingletonClass<GameManager>
 { 
 
-    [SerializeField] float currentTime;
+    [SerializeField] float CurrentTime = 60f;
 
-    [SerializeField] TextMeshProUGUI timer;
+    [SerializeField] TextMeshProUGUI Timer;
 
     // Update is called once per frame
     void Update()
     {
-        if (currentTime > 0)
+        if (CurrentTime > 0)
         {
-            currentTime -= 1 * Time.deltaTime;
+            CurrentTime -= 1 * Time.deltaTime;
         }
         else
         {
-            currentTime = 0;
-            timer.color = Color.red;
+            CurrentTime = 0;
+            Timer.color = Color.red;
             SceneManager.LoadScene("LooseScene");
         }
 
-        int min = Mathf.FloorToInt(currentTime / 60);
-        int sec = Mathf.FloorToInt(currentTime % 60);
-        timer.text = string.Format("{0:00}:{1:00}", min, sec);
+        int min = Mathf.FloorToInt(CurrentTime / 60);
+        int sec = Mathf.FloorToInt(CurrentTime % 60);
+        Timer.text = string.Format("{0:00}:{1:00}", min, sec);
+    }
+
+    public void AddTime(float amount)
+    {
+        CurrentTime += amount;
+    }
+
+    public void RemoveTime(float amount)
+    {
+        CurrentTime -= amount;
     }
 }
