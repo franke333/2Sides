@@ -86,7 +86,7 @@ public class PlayerMovementScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        ProcessCrouching();
+        //ProcessCrouching();
         Vector3 direction = new Vector3(horizontalInput, 0, verticalInput);
         ApplyFixedMovement(direction);
     }

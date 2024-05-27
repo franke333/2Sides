@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class ShoppingCartScript : SingletonClass<ShoppingCartScript>, IInteractable
+public class ShoppingCartScript : MonoBehaviour, IInteractable
 {
     [SerializeField]
     private GameObject _handleGO;
@@ -18,7 +18,7 @@ public class ShoppingCartScript : SingletonClass<ShoppingCartScript>, IInteracta
     private float _allowedDistanceFromPlayer = 10f;
 
     [SerializeField]
-    FixedJoint _joint;
+    Joint _joint;
 
     public float MaxRotationSpeed = 2f;
     public float pushingForce = 200f;
@@ -103,30 +103,6 @@ public class ShoppingCartScript : SingletonClass<ShoppingCartScript>, IInteracta
         }
 
         _isBeingPushed = value;
-    }
-
-    private void BeingPushedAdvanced()
-    {
-        if (!_isBeingPushed)
-            return;
-
-        if(Vector3.Distance(transform.position, PlayerController.Instance.transform.position) > _allowedDistanceFromPlayer)
-        {
-            _isBeingPushed = false;
-            Debug.Log("Shopping cart is not being pushed due to distance");
-            return;
-        }
-
-        Vector3 towardsTarget = PlayerController.Instance.InFrontOfPlayer.position - transform.position;
-        towardsTarget.y = 0;
-
-        //target rotation is to have the player behind the cart
-        Quaternion targetRotation = Quaternion.LookRotation(transform.position-PlayerController.Instance.transform.position, Vector3.up);
-
-        _rb.AddTorque(Vector3.up * Mathf.Min(1, towardsTarget.magnitude) * MaxRotationSpeed, ForceMode.Force);
-        _rb.AddForce(towardsTarget.normalized * Mathf.Min(1,towardsTarget.magnitude) * pushingForce, ForceMode.Force);
-        
-        
     }
 
     public void InteractView(bool value)
