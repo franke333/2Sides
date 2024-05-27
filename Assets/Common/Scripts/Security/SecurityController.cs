@@ -1,8 +1,7 @@
 using DG.Tweening;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngineInternal;
+using UnityEngine.AI;
 
 public class SecurityController : MonoBehaviour
 {
@@ -29,10 +28,12 @@ public class SecurityController : MonoBehaviour
     public bool Chasing = false;
 
     Tween _anim;
+    NavMeshAgent _navMeshAgent;
 
     private void Start()
     {
         SecurityManager.Instance.securities.Add(this);
+        _navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
     private void Turn()
@@ -45,6 +46,10 @@ public class SecurityController : MonoBehaviour
     {
         if(Chasing)
             RunAnimation();
+        //currently moving. stop turning
+        if(_navMeshAgent.hasPath)
+            return;
+
         if (_currentTurnWaitTime > 0)
             _currentTurnWaitTime -= Time.deltaTime;
         else
@@ -135,6 +140,13 @@ public class SecurityController : MonoBehaviour
             );
         return point;
     }
+
+
+    public void MoveTo(Vector3 position)
+    {
+        _navMeshAgent.SetDestination(position);
+    }
+
 
     private void OnDrawGizmos()
     {
