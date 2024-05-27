@@ -31,6 +31,8 @@ public class ShoppingList : MonoBehaviour
             {
                 shoppingList[other.GetComponent<ItemScript>().itemName] += 1;
             }
+
+            GameManager.Instance.AddTime(20f);
         }
     }
 
