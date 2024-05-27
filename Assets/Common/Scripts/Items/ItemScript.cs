@@ -93,7 +93,7 @@ public class ItemScript : MonoBehaviour, IInteractable
     {
         if (collision.gameObject.tag == "Ground")
         {
-            transform.gameObject.layer = 8;
+            transform.gameObject.layer = 10;
 
             for (int i = 0; i < _meshRenderers.Length; i++)
             {
