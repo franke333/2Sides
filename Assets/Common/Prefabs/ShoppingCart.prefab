@@ -382,6 +382,8 @@ GameObject:
   - component: {fileID: 8089285468598444203}
   - component: {fileID: 6782762327187329458}
   - component: {fileID: 3087790767161943203}
+  - component: {fileID: 8208100448951348375}
+  - component: {fileID: 604499748879801913}
   m_Layer: 0
   m_Name: ShoppingCart
   m_TagString: Cart
@@ -424,8 +426,8 @@ Rigidbody:
   m_GameObject: {fileID: 3623665325164062012}
   serializedVersion: 4
   m_Mass: 20
-  m_Drag: 0.001
-  m_AngularDrag: 0.002
+  m_Drag: 0.05
+  m_AngularDrag: 0.04
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -619,6 +621,41 @@ MonoBehaviour:
   _joint: {fileID: 0}
   MaxRotationSpeed: 4
   pushingForce: 250
+--- !u!208 &8208100448951348375
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3623665325164062012}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.575, y: 0.5, z: 0.99}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.31, z: 0.52}
+  m_TimeToStationary: 0.5
+--- !u!114 &604499748879801913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3623665325164062012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 1
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1 &3646575877424654714
 GameObject:
   m_ObjectHideFlags: 0
