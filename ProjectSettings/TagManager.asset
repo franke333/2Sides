@@ -11,6 +11,7 @@ TagManager:
   - Ground
   - Security
   - PatrolPoint
+  - Honey
   layers:
   - Default
   - TransparentFX

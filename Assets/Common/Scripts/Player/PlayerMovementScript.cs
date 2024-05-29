@@ -8,6 +8,9 @@ public class PlayerMovementScript : MonoBehaviour
     Rigidbody _rb;
 
     public float maxSpeed = 1f;
+
+    private float _baseMaxSpeed;
+
     public float acceleration = 1f;
     public float drag = 0.99f;
 
@@ -25,6 +28,8 @@ public class PlayerMovementScript : MonoBehaviour
     [SerializeField]
     GameObject _standingBody, _crouchingBody;
 
+    Dictionary<string, float> _speedModifiers = new Dictionary<string, float>();
+
     private GameObject _headGO;
 
     void LoadComponents()
@@ -37,6 +42,27 @@ public class PlayerMovementScript : MonoBehaviour
     void Start()
     {
         LoadComponents();
+        _baseMaxSpeed = maxSpeed;
+    }
+
+    public void ApplySpeedMod(string name, float mod)
+    {
+        if (_speedModifiers.ContainsKey(name))
+        {
+            _speedModifiers[name] = mod;
+        }
+        else
+        {
+            _speedModifiers.Add(name, mod);
+        }
+    }
+
+    public void RemoveSpeedMod(string name)
+    {
+        if (_speedModifiers.ContainsKey(name))
+        {
+            _speedModifiers.Remove(name);
+        }
     }
 
     // Update is called once per frame
@@ -51,7 +77,16 @@ public class PlayerMovementScript : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
         _sprinting = Input.GetKey(KeyCode.LeftShift);
         _crouching = Input.GetKey(KeyCode.LeftControl);
-        
+    }
+
+    private float GetSpeedModifier()
+    {
+        float mod = 1f;
+        foreach (var _mod in _speedModifiers.Values)
+        {
+            mod *= _mod;
+        }
+        return mod;
     }
 
     void ApplyFixedMovement(Vector3 direction)
@@ -59,7 +94,7 @@ public class PlayerMovementScript : MonoBehaviour
         _rb.AddRelativeForce(direction*acceleration*_rb.mass);
 
         var sprintMultiplier = _sprinting ? runSpeed : 1;
-        _rb.maxLinearVelocity = maxSpeed * sprintMultiplier;
+        _rb.maxLinearVelocity = GetSpeedModifier() * maxSpeed * sprintMultiplier;
 
     }
 

@@ -24,7 +24,9 @@ public class PlayerController : SingletonClass<PlayerController>
 
     public Collider[] colliders;
 
+    public void ApplySpeedModifier(string name,float mod) => _playerMovementScript.ApplySpeedMod(name, mod);
 
+    public void RemoveSpeedModifier(string name) => _playerMovementScript.RemoveSpeedMod(name);
 
     private void Start()
     {
