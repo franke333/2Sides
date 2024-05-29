@@ -27,7 +27,8 @@ public class ArmsMovement : MonoBehaviour
 
         if (Input.GetMouseButton(RightArm ? 1 : 0))
         {
-            transform.GetComponentInChildren<Collider>().enabled = true;
+            if(!RightArm)
+                transform.GetComponentInChildren<Collider>().enabled = true;
             transform.rotation = targetRotation;
         }
 
@@ -40,7 +41,8 @@ public class ArmsMovement : MonoBehaviour
         {
             _pickUp.DropItem();
             transform.localRotation = Quaternion.Euler(80.7f, 0f, 0f);
-            transform.GetComponentInChildren<Collider>().enabled = false;
+            if(!RightArm)
+                transform.GetComponentInChildren<Collider>().enabled = false;
         }
     }
 }

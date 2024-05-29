@@ -21,7 +21,7 @@ public class ShoppingCartScript : MonoBehaviour, IInteractable
     Joint _joint;
 
     public float MaxRotationSpeed = 2f;
-    public float pushingForce = 200f;
+    public float throwForce = 200f;
 
     private bool _locked = false;
 
@@ -117,5 +117,14 @@ public class ShoppingCartScript : MonoBehaviour, IInteractable
 
     public void Throw()
     {
+        if (_locked)
+            return;
+        _locked = true;
+        //deattach player or he will be reaching outer space
+        BeingPushedSimple(false);
+
+        Invoke("Unlock", 1f);
+
+        _rb.AddForce(PlayerController.Instance.transform.forward * throwForce, ForceMode.Impulse);
     }
 }
