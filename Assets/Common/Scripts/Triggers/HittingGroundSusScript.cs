@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class HittingGroundSusScript : MonoBehaviour
 {
-    public float susIncrease = 20f;
-    public float cooldown = 60f;
+    public float timeDecrease = 20f;
+    public float cooldown = 560f;
 
     private float _currentCooldown = 0f;
 
@@ -19,8 +19,8 @@ public class HittingGroundSusScript : MonoBehaviour
             return;
 
         _currentCooldown = cooldown;
-        SusMeter.Instance.ChangeValue(susIncrease);
-        Debug.Log("Hitting ground -> adding " + susIncrease + " to sus");
+        GameManager.Instance.RemoveTime(timeDecrease);
+        Debug.Log("Hitting ground -> decreasing " + timeDecrease + " from time");
         return;
     }
 
