@@ -169,4 +169,11 @@ public class SecurityController : MonoBehaviour
             Gizmos.DrawSphere(point, 0.1f);
         }
     }
+    private void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.layer == 3) // If the collision is with Player layer
+        {
+            GameManager.Instance.GameOver();
+        }
+    }
 }

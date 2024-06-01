@@ -7,12 +7,16 @@ public class SecurityManager : SingletonClass<SecurityManager>
     public List<SecurityController> securities;
     public List<Vector3> patrolPoints;
 
+    PlayerController _player;
+
     // this can be done differently
     int _currentSecurityIndex = 0;
     float _untilNextPatrol = 0f;
 
     private void Start()
     {
+        _player = FindObjectOfType<PlayerController>();
+
         patrolPoints = GameObject.FindGameObjectsWithTag("PatrolPoint").Select(x => x.transform.position).ToList();
         securities = GameObject.FindGameObjectsWithTag("Security").Select(x => x.GetComponent<SecurityController>()).ToList();
         for (int i = 0; i < securities.Count; i++)
@@ -38,6 +42,14 @@ public class SecurityManager : SingletonClass<SecurityManager>
         _currentSecurityIndex = (_currentSecurityIndex + 1) % securities.Count;
         _untilNextPatrol = Random.Range(0.2f, 5f);
         securities[_currentSecurityIndex].MoveTo(patrolPoints[Random.Range(0,patrolPoints.Count)]);
+    }
+
+    public void GameOverRunToPlayer()
+    {
+        foreach (var security in securities)
+        {
+            security.MoveTo(_player.transform.position);
+        }
     }
 
 

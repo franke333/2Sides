@@ -12,6 +12,13 @@ public class GameManager : SingletonClass<GameManager>
 
     [SerializeField] TextMeshProUGUI Timer;
 
+    SecurityManager _sm;
+
+    void Start()
+    {
+        _sm = FindObjectOfType<SecurityManager>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -23,7 +30,7 @@ public class GameManager : SingletonClass<GameManager>
         {
             CurrentTime = 0;
             Timer.color = Color.red;
-            SceneManager.LoadScene("LooseScene");
+            _sm.GameOverRunToPlayer();
         }
 
         int min = Mathf.FloorToInt(CurrentTime / 60);
@@ -39,5 +46,10 @@ public class GameManager : SingletonClass<GameManager>
     public void RemoveTime(float amount)
     {
         CurrentTime -= amount;
+    }
+
+    public void GameOver()
+    {
+        SceneManager.LoadScene("LooseScene");
     }
 }
