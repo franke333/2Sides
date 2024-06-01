@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8818983615792492642}
   - component: {fileID: 3471090118450455672}
   - component: {fileID: 1553449119484873037}
-  - component: {fileID: 923394474765079133}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -105,28 +104,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &923394474765079133
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 119859366175232763}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bddd8d410a2d9749b5fe54d43b2c0e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  List: {fileID: 2062182381196852716}
-  items:
-  - Milk
-  - Roll
-  - Apple
-  - EggCarton
-  - Water
-  - Bread
-  - Cheese
-  - Banana
 --- !u!1 &3539587363435964875
 GameObject:
   m_ObjectHideFlags: 0

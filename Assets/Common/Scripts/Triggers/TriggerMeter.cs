@@ -17,7 +17,7 @@ public class TriggerMeter : IMeter<TriggerMeter>
     protected override void OnTrigger()
     {
         Debug.Log("Triggered");
-        PlayerController.Instance.DEBUG_CART.GetComponent<ShoppingCartScript>().DoAFlip();
+        ShoppingCartScript.Instance.DoAFlip();
         base.OnTrigger();
         ChangeValue(-_maxValue);
         Invoke("Unlock", 1);

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6980407006779700176}
   m_Layer: 9
   m_Name: Security
-  m_TagString: PatrolPoint
+  m_TagString: Security
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

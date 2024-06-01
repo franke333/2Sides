@@ -12,8 +12,6 @@ public class PlayerController : SingletonClass<PlayerController>
 
     private IInteractable _currentInteractible;
 
-    public GameObject DEBUG_CART;
-
     public GameObject Body;
     public GameObject Head;
 

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class ShoppingCartScript : MonoBehaviour, IInteractable
+public class ShoppingCartScript : SingletonClass<ShoppingCartScript>, IInteractable
 {
     [SerializeField]
     private GameObject _handleGO;

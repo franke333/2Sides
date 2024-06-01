@@ -15,6 +15,14 @@ public class SecurityManager : SingletonClass<SecurityManager>
     {
         patrolPoints = GameObject.FindGameObjectsWithTag("PatrolPoint").Select(x => x.transform.position).ToList();
         securities = GameObject.FindGameObjectsWithTag("Security").Select(x => x.GetComponent<SecurityController>()).ToList();
+        for (int i = 0; i < securities.Count; i++)
+        {
+            if (securities[i] == null)
+            {
+                securities.RemoveAt(i);
+                i--;
+            }
+        }
     }
 
     private void Update()
