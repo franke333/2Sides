@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9007811744672543386}
   - component: {fileID: 4308954834829231502}
   - component: {fileID: 5130980669188670821}
+  - component: {fileID: -2508877397026991428}
   m_Layer: 0
   m_Name: HoneyArea
   m_TagString: Honey
@@ -122,3 +123,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   modifierName: Honey
   modifierValue: 0.1
+--- !u!114 &-2508877397026991428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150633611708256891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 1
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff

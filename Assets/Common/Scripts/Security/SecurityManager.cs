@@ -49,6 +49,7 @@ public class SecurityManager : SingletonClass<SecurityManager>
         foreach (var security in securities)
         {
             security.MoveTo(_player.transform.position);
+            security.Chasing = true;
         }
     }
 

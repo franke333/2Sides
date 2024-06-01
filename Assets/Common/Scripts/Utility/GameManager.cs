@@ -16,7 +16,7 @@ public class GameManager : SingletonClass<GameManager>
 
     void Start()
     {
-        _sm = FindObjectOfType<SecurityManager>();
+        _sm = SecurityManager.Instance;
     }
 
     // Update is called once per frame
