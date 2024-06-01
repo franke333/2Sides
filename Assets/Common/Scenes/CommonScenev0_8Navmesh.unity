@@ -28461,6 +28461,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShoppingCartMain
       objectReference: {fileID: 0}
+    - target: {fileID: 4199586396398661432, guid: dd184699f304429449ca8fcc281d12cf,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7787a529feb5d824d99e21e08199f0b8, type: 2}
     - target: {fileID: 4819567794432031274, guid: dd184699f304429449ca8fcc281d12cf,
         type: 3}
       propertyPath: m_LocalPosition.x
