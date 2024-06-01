@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ItemScript : MonoBehaviour, IInteractable
@@ -95,7 +96,6 @@ public class ItemScript : MonoBehaviour, IInteractable
         if (collision.gameObject.tag == "Ground")
         {
             transform.gameObject.layer = 10;
-            Debug.Log("dotkl");
 
             for (int i = 0; i < _meshRenderers.Length; i++)
             {

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TriggerSourceAudio : MonoBehaviour, IInteractable
@@ -90,7 +91,7 @@ public class TriggerSourceAudio : MonoBehaviour, IInteractable
     {
         if (value)
         {
-            foreach(var collider in GetComponentsInChildren<Collider>())
+            foreach (var collider in GetComponentsInChildren<Collider>())
             {
                 Physics.IgnoreCollision(PlayerController.Instance.Body.GetComponent<Collider>(), collider, true);
                 Physics.IgnoreCollision(PlayerController.Instance.Head.GetComponent<Collider>(), collider, true);
