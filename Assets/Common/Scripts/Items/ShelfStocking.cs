@@ -22,6 +22,7 @@ public class ShelfStocking : MonoBehaviour
         }
     }
 
+#if UNITY_EDITOR
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
@@ -36,4 +37,5 @@ public class ShelfStocking : MonoBehaviour
                 Handles.Label(stockSpawnPoints[i].position + Vector3.up * 0.2f, stockItems[i].name);
         }
     }
+#endif
 }

@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Common/Scenes/CommonScenev0_8Navmesh.unity
-    guid: a768e5d4b30cc2f4fbb34f57d8f57a34
+    path: Assets/Common/Scenes/CommonScenev0_85TEST_dont_use_this_one.unity
+    guid: 4630ad3d3068ca0429a580156703de65
   - enabled: 1
     path: Assets/Common/Scenes/WinScene.unity
     guid: b208457c36b63fe41a779801e6e0e908

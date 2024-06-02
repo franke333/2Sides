@@ -5,13 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class GameEnd : MonoBehaviour
 {
-    public GameObject Indicator;
+    public GameObject[] Indicator;
     Color defaultColor = Color.black;
     public ShoppingList sl;
 
     private void Start()
     {
-        Indicator.GetComponent<Renderer>().material.color = defaultColor;
+        ChangeIndicatoColors(defaultColor);
+        sl = ShoppingList.Instance;
+    }
+
+    private void ChangeIndicatoColors(Color color)
+    {
+        foreach (var item in Indicator)
+        {
+            item.GetComponent<Renderer>().material.color = color;
+        }
     }
 
     private void OnTriggerStay(Collider collision)
@@ -20,19 +29,19 @@ public class GameEnd : MonoBehaviour
         {
             if (sl.HasAllItems)
             {
-                Indicator.GetComponent<Renderer>().material.color = Color.green;
+                ChangeIndicatoColors(Color.green);
                 SceneManager.LoadScene("WinScene");
             }
-            else Indicator.GetComponent<Renderer>().material.color = Color.red;
+            else ChangeIndicatoColors(Color.red);
         }
         else
         {
-            Indicator.GetComponent<Renderer>().material.color = Color.red;
+            ChangeIndicatoColors(Color.red);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        Indicator.GetComponent <Renderer>().material.color = defaultColor;
+        ChangeIndicatoColors(defaultColor);
     }
 }

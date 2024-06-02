@@ -108,10 +108,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 539414584b4621b419e94b491da7261d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: EggCarton
+  itemName: Eggs
   throwForce: 1000
   _fallToTheGroundClip: {fileID: 0}
   _putInCartClip: {fileID: 0}
+  _baceCooldown: 1
 --- !u!54 &4572731908390685803
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -4,11 +4,13 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class ShoppingList : MonoBehaviour
+public class ShoppingList : SingletonClass<ShoppingList>
 {
     public bool HasAllItems = false;
     private bool hasReachedCheckPoint = false;
     private bool checkCart = false;
+
+    public List<string> items = new List<string>();
 
     private Dictionary<string, int> wholeList = new Dictionary<string, int>();
 
@@ -18,14 +20,21 @@ public class ShoppingList : MonoBehaviour
 
     private void Start()
     {
-        for (int i = 0; i < ShoppingListUI.Instance.items.Count; i++)
+        for (int i = 0; i < items.Count; i++)
         {
-            wholeList.Add(ShoppingListUI.Instance.items[i], Random.Range(1, 3));
+            wholeList.Add(items[i], Random.Range(1, 4));
         }
 
         RandomItem(2);
 
-        ShoppingListUI.Instance.FillList(CurrentList);
+        ShoppingListUI.Instance.UpdateList(CurrentList);
+    }
+    private bool IsListItem(string itemName)
+    {
+        if (!CurrentList.ContainsKey(itemName))
+            return false;
+        //true if there is less in the cart than in the list
+        return CurrentList[itemName] > (cart.ContainsKey(itemName) ? cart[itemName] : 0);
     }
 
     private void Update()
@@ -60,8 +69,8 @@ public class ShoppingList : MonoBehaviour
         {
             if (CurrentList.Count < 3)
             {
-                RandomItem(5);
-                ShoppingListUI.Instance.FillList(CurrentList);
+                RandomItem(4);
+                ShoppingListUI.Instance.UpdateList(CurrentList);
                 GameManager.Instance.AddTime(20f);
                 hasReachedCheckPoint = false;
             }
@@ -73,21 +82,36 @@ public class ShoppingList : MonoBehaviour
         }
     }
 
+    public void CheckItem(ItemScript itemScript)
+    {
+        if (!cart.ContainsKey(itemScript.itemName))
+        {
+            cart.Add(itemScript.itemName, 1);
+        }
+        else
+        {
+            cart[itemScript.itemName] += 1;
+        }
+        GameManager.Instance.AddTime(10f);
+        if (CurrentList[itemScript.itemName] == cart[itemScript.itemName])
+            ShoppingListUI.Instance.ItemCompleted(itemScript.itemName);
+        checkCart = true;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Item")
         {
-            ItemScript itemScript = other.GetComponent<ItemScript>();
-            if (!cart.ContainsKey(itemScript.itemName))
+            ItemScript itemscript = other.GetComponent<ItemScript>();
+            if(IsListItem(itemscript.itemName))
             {
-                cart.Add(itemScript.itemName, 1);
+                itemscript.StartLockToCart();
             }
             else
             {
-                cart[itemScript.itemName] += 1;
+                itemscript.StartShootFromCart();
             }
-            itemScript.PlaySoundInCart();
-            checkCart = true;
+            itemscript.PlaySoundInCart();
         }
     }
 
@@ -95,16 +119,7 @@ public class ShoppingList : MonoBehaviour
     {
         if (other.gameObject.tag == "Item")
         {
-            if (cart[other.GetComponent<ItemScript>().itemName] == 1)
-            {
-                cart.Remove(other.GetComponent<ItemScript>().itemName);
-            }
-            else
-            {
-                cart[other.GetComponent<ItemScript>().itemName] -= 1;
-            }
-
-            checkCart = true;
+            other.GetComponent<ItemScript>().StopCooldown();
         }
     }
 
@@ -113,7 +128,7 @@ public class ShoppingList : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             var randomItemKey = wholeList.Keys.ElementAt(Random.Range(0, wholeList.Keys.Count - 1));
-            var randomItemValue = wholeList.Values.ElementAt(Random.Range(0, wholeList.Values.Count - 1));
+            var randomItemValue = wholeList[randomItemKey];
             CurrentList.Add(randomItemKey, randomItemValue);
             wholeList.Remove(randomItemKey);
         }

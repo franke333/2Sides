@@ -41,7 +41,6 @@ public class AudioOnMovementScript : MonoBehaviour
         {
             speed = navMeshAgent.velocity.magnitude;
         }
-        Debug.Log(speed);
         speed = Mathf.Clamp(speed, minSpeed, maxSpeed);
         float volume = volumeCurve.Evaluate(Mathf.InverseLerp(minSpeed, maxSpeed, speed));
         audioSource.volume = Mathf.Lerp(minVolume, maxVolume, volume);
