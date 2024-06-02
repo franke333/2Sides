@@ -10875,7 +10875,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b99e4a58e567144fa55e19d2041e428, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  permaAmbient: {fileID: 0}
+  permaAmbient: {fileID: 8300000, guid: 1e5ac3c750169da42b664db25b3cac4f, type: 3}
   escalatingAmbients: []
   escalatingAmbientTimes: []
   timeAdded: {fileID: 0}
@@ -10883,6 +10883,9 @@ MonoBehaviour:
   shoppingListUpdated: {fileID: 0}
   throwItemSFX: {fileID: 8300000, guid: 179a66b0eb5088947bf51354dc6713f9, type: 3}
   securityAlertedSFX: {fileID: 8300000, guid: 22f17a161f9eafc40ada40fd24101bdb, type: 3}
+  lostChildAnnouncment: {fileID: 0}
+  _minimalVelocityForPlayingHitSound: 3
+  _3dSpatialBlendForItemSFX: 1
 --- !u!1 &867036822
 GameObject:
   m_ObjectHideFlags: 0
@@ -12767,6 +12770,96 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224382175525801230, guid: 2f0b31cb374bd12489ed63c4f26d33fe,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224382175525801230, guid: 2f0b31cb374bd12489ed63c4f26d33fe,
+        type: 3}
+      propertyPath: minSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224382175525801230, guid: 2f0b31cb374bd12489ed63c4f26d33fe,
+        type: 3}
+      propertyPath: volumeCurve.m_Curve.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224382175525801230, guid: 2f0b31cb374bd12489ed63c4f26d33fe,
+        type: 3}
+      propertyPath: volumeCurve.m_Curve.Array.data[1].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224382175525801230, guid: 2f0b31cb374bd12489ed63c4f26d33fe,
+        type: 3}
+      propertyPath: volumeCurve.m_Curve.Array.data[2].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224382175525801230, guid: 2f0b31cb374bd12489ed63c4f26d33fe,
+        type: 3}
+      propertyPath: volumeCurve.m_Curve.Array.data[1].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224382175525801230, guid: 2f0b31cb374bd12489ed63c4f26d33fe,
+        type: 3}
+      propertyPath: volumeCurve.m_Curve.Array.data[2].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224382175525801230, guid: 2f0b31cb374bd12489ed63c4f26d33fe,
+        type: 3}
+      propertyPath: volumeCurve.m_Curve.Array.data[0].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224382175525801230, guid: 2f0b31cb374bd12489ed63c4f26d33fe,
+        type: 3}
+      propertyPath: volumeCurve.m_Curve.Array.data[1].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224382175525801230, guid: 2f0b31cb374bd12489ed63c4f26d33fe,
+        type: 3}
+      propertyPath: volumeCurve.m_Curve.Array.data[2].inSlope
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224382175525801230, guid: 2f0b31cb374bd12489ed63c4f26d33fe,
+        type: 3}
+      propertyPath: volumeCurve.m_Curve.Array.data[0].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224382175525801230, guid: 2f0b31cb374bd12489ed63c4f26d33fe,
+        type: 3}
+      propertyPath: volumeCurve.m_Curve.Array.data[1].inWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224382175525801230, guid: 2f0b31cb374bd12489ed63c4f26d33fe,
+        type: 3}
+      propertyPath: volumeCurve.m_Curve.Array.data[1].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224382175525801230, guid: 2f0b31cb374bd12489ed63c4f26d33fe,
+        type: 3}
+      propertyPath: volumeCurve.m_Curve.Array.data[2].outSlope
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224382175525801230, guid: 2f0b31cb374bd12489ed63c4f26d33fe,
+        type: 3}
+      propertyPath: volumeCurve.m_Curve.Array.data[1].outWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8797343074152132661, guid: 2f0b31cb374bd12489ed63c4f26d33fe,
+        type: 3}
+      propertyPath: MaxDistance
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8797343074152132661, guid: 2f0b31cb374bd12489ed63c4f26d33fe,
+        type: 3}
+      propertyPath: MinDistance
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8797343074152132661, guid: 2f0b31cb374bd12489ed63c4f26d33fe,
+        type: 3}
+      propertyPath: rolloffMode
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18217,7 +18310,7 @@ PrefabInstance:
     - target: {fileID: 6026579833015247312, guid: dd5ccd99683060e4095c3a7b2a8e9fe5,
         type: 3}
       propertyPath: CurrentTime
-      value: 60
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 6026579833015247312, guid: dd5ccd99683060e4095c3a7b2a8e9fe5,
         type: 3}

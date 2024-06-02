@@ -17,6 +17,9 @@ public class ItemScript : MonoBehaviour, IInteractable
     [SerializeField]
     AudioClip _putInCartClip;
     AudioSource _source;
+    Rigidbody _rb;
+
+    float _lastVelocity = 0.5f;
 
 
     private void Start()
@@ -30,7 +33,13 @@ public class ItemScript : MonoBehaviour, IInteractable
 
         gameObject.AddComponent<HittingGroundSusScript>();
         _source = gameObject.AddComponent<AudioSource>();
-        _source.spatialBlend = .8f;
+        _source.spatialBlend = AudioManager.Instance._3dSpatialBlendForItemSFX;
+        _rb = GetComponent<Rigidbody>();
+    }
+
+    private void FixedUpdate()
+    {
+        _lastVelocity = _rb.velocity.magnitude;
     }
 
     public void HoverOver()
@@ -52,6 +61,8 @@ public class ItemScript : MonoBehaviour, IInteractable
     {
         if (_source.isPlaying)
             return;
+        float velocity = Mathf.Max(_lastVelocity, _rb.velocity.magnitude);
+        _source.volume = Mathf.Clamp(velocity/ AudioManager.Instance._minimalVelocityForPlayingHitSound, 0, 1);
         _source.clip = _fallToTheGroundClip;
         _source.Play();
     }
@@ -60,6 +71,7 @@ public class ItemScript : MonoBehaviour, IInteractable
     {
         if (_source.isPlaying)
             return;
+        _source.volume = 1;
         _source.clip = _putInCartClip;
         _source.Play();
     }
@@ -96,6 +108,7 @@ public class ItemScript : MonoBehaviour, IInteractable
         transform.parent = null;
         transform.GetComponent<Rigidbody>().isKinematic = false;
         transform.GetComponent<Rigidbody>().AddForce(_playerCameraScript.GetViewVector() * throwForce);
+        AudioManager.Instance.PlayThrowItem();
         foreach (var collider in GetComponentsInChildren<Collider>())
         {
             Physics.IgnoreCollision(PlayerController.Instance.Body.GetComponent<Collider>(), collider, true);
@@ -117,7 +130,7 @@ public class ItemScript : MonoBehaviour, IInteractable
 
     private void OnCollisionEnter(Collision collision)
     {
-        //Debug.Log("spadl");
+        PlaySoundOnGround();
         if (collision.gameObject.tag == "Ground")
         {
             transform.gameObject.layer = 10;
@@ -126,8 +139,6 @@ public class ItemScript : MonoBehaviour, IInteractable
             {
                 _meshRenderers[i].material.color = Color.black;
             }
-
-            PlaySoundOnGround();
         }
     }
 }

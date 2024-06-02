@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AudioManager : SingletonClass<AudioManager>
@@ -18,12 +19,18 @@ public class AudioManager : SingletonClass<AudioManager>
     public AudioClip shoppingListUpdated;
     public AudioClip throwItemSFX;
     public AudioClip securityAlertedSFX;
+    public AudioClip lostChildAnnouncment;
 
     private AudioSource _timeAddedSource;
     private AudioSource _timeRemovedSource;
     private AudioSource _shoppingListUpdatedSource;
     private AudioSource _throwItemSFXSource;
     private AudioSource _securityAlertedSFXSource;
+    private AudioSource _lostChildAnnouncmentSource;
+
+    [Header("GLobal Settings")]
+    public float _minimalVelocityForPlayingHitSound = 0.5f;
+    public float _3dSpatialBlendForItemSFX = 1f;
 
 
     private void Start()
@@ -55,11 +62,37 @@ public class AudioManager : SingletonClass<AudioManager>
 
         _securityAlertedSFXSource = gameObject.AddComponent<AudioSource>();
         _securityAlertedSFXSource.clip = securityAlertedSFX;
+
+        _lostChildAnnouncmentSource = gameObject.AddComponent<AudioSource>();
+        _lostChildAnnouncmentSource.clip = lostChildAnnouncment;
+
+        StartCoroutine(PlayLostChildAndScheduleNewOne());
+    }
+
+    private IEnumerator PlayLostChildAndScheduleNewOne()
+    {
+        yield return new WaitForSeconds(Random.Range(5, 20));
+        while (!BabyQuest.Instance.isComplete)
+        {
+            _lostChildAnnouncmentSource.Play();
+            yield return new WaitForSeconds(Random.Range(45, 60));
+        }
     }
 
     private void Update()
     {
         UpdateEscalatingAmbient();
+        if(Input.GetKeyDown(KeyCode.M))
+        {
+            if(_permaAmbientSource.isPlaying)
+            {
+                _permaAmbientSource.Pause();
+            }
+            else
+            {
+                _permaAmbientSource.Play();
+            }
+        }
     }
 
     private void UpdateEscalatingAmbient()

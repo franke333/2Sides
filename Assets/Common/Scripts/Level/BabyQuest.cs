@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BabyQuest : MonoBehaviour
+public class BabyQuest : SingletonClass<BabyQuest>
 {
     private float deathFadeTime = 0.6f;
     private MeshRenderer _mr;
+
+    public bool isComplete => gameObject.activeSelf;
 
     private void Start()
     {

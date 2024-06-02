@@ -13,6 +13,7 @@ public class SecurityManager : SingletonClass<SecurityManager>
     int _currentSecurityIndex = 0;
     float _untilNextPatrol = 0f;
 
+
     private void Start()
     {
         _player = FindObjectOfType<PlayerController>();

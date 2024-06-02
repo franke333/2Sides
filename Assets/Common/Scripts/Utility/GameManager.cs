@@ -13,6 +13,9 @@ public class GameManager : SingletonClass<GameManager>
     [SerializeField] TextMeshProUGUI Timer;
 
     SecurityManager _sm;
+    bool _gameOver = false;
+
+    public bool GameOverSequence => _gameOver;
 
     void Start()
     {
@@ -22,12 +25,15 @@ public class GameManager : SingletonClass<GameManager>
     // Update is called once per frame
     void Update()
     {
-        if (CurrentTime > 0)
+        if (CurrentTime > 0 && !_gameOver)
         {
             CurrentTime -= 1 * Time.deltaTime;
         }
         else
         {
+            if (!_gameOver)
+                AudioManager.Instance.PlaySecurityAlerted();
+            _gameOver = true;
             CurrentTime = 0;
             Timer.color = Color.red;
             _sm.GameOverRunToPlayer();
@@ -40,12 +46,18 @@ public class GameManager : SingletonClass<GameManager>
 
     public void AddTime(float amount)
     {
+        if (_gameOver)
+            return;
         CurrentTime += amount;
+        AudioManager.Instance.PlayTimeAdded();
     }
 
     public void RemoveTime(float amount)
     {
+        if (_gameOver)
+            return;
         CurrentTime -= amount;
+        AudioManager.Instance.PlayTimeRemoved();
     }
 
     public void GameOver()
