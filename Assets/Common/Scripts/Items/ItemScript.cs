@@ -12,6 +12,12 @@ public class ItemScript : MonoBehaviour, IInteractable
     MeshRenderer[] _meshRenderers;
     HighlightScript _highlightScript;
 
+    [SerializeField]
+    AudioClip _fallToTheGroundClip;
+    [SerializeField]
+    AudioClip _putInCartClip;
+    AudioSource _source;
+
 
     private void Start()
     {
@@ -23,6 +29,8 @@ public class ItemScript : MonoBehaviour, IInteractable
         _highlightScript.Init(_meshRenderers, Color.yellow);
 
         gameObject.AddComponent<HittingGroundSusScript>();
+        _source = gameObject.AddComponent<AudioSource>();
+        _source.spatialBlend = .8f;
     }
 
     public void HoverOver()
@@ -39,6 +47,23 @@ public class ItemScript : MonoBehaviour, IInteractable
     {
         //Do nothing
     }
+
+    public void PlaySoundOnGround()
+    {
+        if (_source.isPlaying)
+            return;
+        _source.clip = _fallToTheGroundClip;
+        _source.Play();
+    }
+
+    public void PlaySoundInCart()
+    {
+        if (_source.isPlaying)
+            return;
+        _source.clip = _putInCartClip;
+        _source.Play();
+    }
+
     public void Touch(bool value, Transform h)
     {
         if (value)
@@ -92,7 +117,7 @@ public class ItemScript : MonoBehaviour, IInteractable
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("spadl");
+        //Debug.Log("spadl");
         if (collision.gameObject.tag == "Ground")
         {
             transform.gameObject.layer = 10;
@@ -101,6 +126,8 @@ public class ItemScript : MonoBehaviour, IInteractable
             {
                 _meshRenderers[i].material.color = Color.black;
             }
+
+            PlaySoundOnGround();
         }
     }
 }

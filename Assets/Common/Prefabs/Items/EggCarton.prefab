@@ -110,6 +110,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: EggCarton
   throwForce: 1000
+  _fallToTheGroundClip: {fileID: 0}
+  _putInCartClip: {fileID: 0}
 --- !u!54 &4572731908390685803
 Rigidbody:
   m_ObjectHideFlags: 0

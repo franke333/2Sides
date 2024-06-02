@@ -77,15 +77,16 @@ public class ShoppingList : MonoBehaviour
     {
         if (other.gameObject.tag == "Item")
         {
-            if (!cart.ContainsKey(other.GetComponent<ItemScript>().itemName))
+            ItemScript itemScript = other.GetComponent<ItemScript>();
+            if (!cart.ContainsKey(itemScript.itemName))
             {
-                cart.Add(other.GetComponent<ItemScript>().itemName, 1);
+                cart.Add(itemScript.itemName, 1);
             }
             else
             {
-                cart[other.GetComponent<ItemScript>().itemName] += 1;
+                cart[itemScript.itemName] += 1;
             }
-
+            itemScript.PlaySoundInCart();
             checkCart = true;
         }
     }

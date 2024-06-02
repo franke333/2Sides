@@ -52,4 +52,7 @@ public class GameManager : SingletonClass<GameManager>
     {
         SceneManager.LoadScene("LooseScene");
     }
+
+
+    public float GetTime() => CurrentTime;
 }
