@@ -65,6 +65,10 @@ public class GameManager : SingletonClass<GameManager>
         SceneManager.LoadScene("LooseScene");
     }
 
+    public void GameWon()
+    {
+        SceneManager.LoadScene("WinScene");
+    }
 
     public float GetTime() => CurrentTime;
 }

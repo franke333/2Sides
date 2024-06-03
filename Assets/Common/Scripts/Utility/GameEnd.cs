@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameEnd : MonoBehaviour
 {
@@ -30,7 +29,7 @@ public class GameEnd : MonoBehaviour
             if (sl.HasAllItems)
             {
                 ChangeIndicatoColors(Color.green);
-                SceneManager.LoadScene("WinScene");
+                GameManager.Instance.GameWon();
             }
             else ChangeIndicatoColors(Color.red);
         }

@@ -77,7 +77,7 @@ public class ShoppingList : SingletonClass<ShoppingList>
             else
             {
                 HasAllItems = true;
-                Debug.Log("WON!");
+                Debug.Log("Go to cashiers!");
             }
         }
     }

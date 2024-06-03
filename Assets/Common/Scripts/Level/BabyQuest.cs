@@ -4,15 +4,7 @@ using UnityEngine;
 
 public class BabyQuest : SingletonClass<BabyQuest>
 {
-    private float deathFadeTime = 0.6f;
-    private MeshRenderer _mr;
-
     public bool isComplete => gameObject.activeSelf;
-
-    private void Start()
-    {
-        _mr = GetComponent<MeshRenderer>();
-    }
 
     private void OnTriggerEnter(Collider col)
     {
