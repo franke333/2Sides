@@ -13409,6 +13409,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6364064952411482726, guid: 2f0b31cb374bd12489ed63c4f26d33fe,
+        type: 3}
+      propertyPath: extensionLength
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6364064952411482726, guid: 2f0b31cb374bd12489ed63c4f26d33fe,
+        type: 3}
+      propertyPath: extensionCurve.m_Curve.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6364064952411482726, guid: 2f0b31cb374bd12489ed63c4f26d33fe,
+        type: 3}
+      propertyPath: extensionCurve.m_Curve.Array.data[1].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6364064952411482726, guid: 2f0b31cb374bd12489ed63c4f26d33fe,
+        type: 3}
+      propertyPath: extensionCurve.m_Curve.Array.data[1].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6705740753064380782, guid: 2f0b31cb374bd12489ed63c4f26d33fe,
         type: 3}
       propertyPath: m_IsActive
@@ -28802,11 +28822,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShoppingCartMain
       objectReference: {fileID: 0}
-    - target: {fileID: 4199586396398661432, guid: dd184699f304429449ca8fcc281d12cf,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 7787a529feb5d824d99e21e08199f0b8, type: 2}
     - target: {fileID: 4819567794432031274, guid: dd184699f304429449ca8fcc281d12cf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28856,56 +28871,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5060286129367890978, guid: dd184699f304429449ca8fcc281d12cf,
-        type: 3}
-      propertyPath: MinDistance
-      value: 1.5043888
-      objectReference: {fileID: 0}
-    - target: {fileID: 5437755441929292611, guid: dd184699f304429449ca8fcc281d12cf,
-        type: 3}
-      propertyPath: items.Array.size
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5437755441929292611, guid: dd184699f304429449ca8fcc281d12cf,
-        type: 3}
-      propertyPath: items.Array.data[0]
-      value: Milk
-      objectReference: {fileID: 0}
-    - target: {fileID: 5437755441929292611, guid: dd184699f304429449ca8fcc281d12cf,
-        type: 3}
-      propertyPath: items.Array.data[1]
-      value: Roll
-      objectReference: {fileID: 0}
-    - target: {fileID: 5437755441929292611, guid: dd184699f304429449ca8fcc281d12cf,
-        type: 3}
-      propertyPath: items.Array.data[2]
-      value: Apple
-      objectReference: {fileID: 0}
-    - target: {fileID: 5437755441929292611, guid: dd184699f304429449ca8fcc281d12cf,
-        type: 3}
-      propertyPath: items.Array.data[3]
-      value: Eggs
-      objectReference: {fileID: 0}
-    - target: {fileID: 5437755441929292611, guid: dd184699f304429449ca8fcc281d12cf,
-        type: 3}
-      propertyPath: items.Array.data[4]
-      value: BottledWater
-      objectReference: {fileID: 0}
-    - target: {fileID: 5437755441929292611, guid: dd184699f304429449ca8fcc281d12cf,
-        type: 3}
-      propertyPath: items.Array.data[5]
-      value: Bread
-      objectReference: {fileID: 0}
-    - target: {fileID: 5437755441929292611, guid: dd184699f304429449ca8fcc281d12cf,
-        type: 3}
-      propertyPath: items.Array.data[6]
-      value: Cheese
-      objectReference: {fileID: 0}
-    - target: {fileID: 5437755441929292611, guid: dd184699f304429449ca8fcc281d12cf,
-        type: 3}
-      propertyPath: items.Array.data[7]
-      value: Banana
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -35,18 +35,10 @@ public class ShoppingCartScript : SingletonClass<ShoppingCartScript>, IInteracta
 
     public void HoverOver()
     {
-        if(_handleMR != null)
-        {
-            _handleMR.material.color = Color.green;
-        }
     }
 
     public void HoverOut()
     {
-        if(_handleMR != null)
-        {
-            _handleMR.material.color = _handleColor;
-        }
     }
 
     private void Update()

@@ -939,6 +939,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8581931747451654215}
+  - component: {fileID: 3164021408794161640}
   m_Layer: 0
   m_Name: ShoppingList
   m_TagString: Untagged
@@ -956,12 +957,47 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 18.309814, y: 1.0941969, z: 34.396725}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7184318950274638556}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3164021408794161640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2951345570769682108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bddd8d410a2d9749b5fe54d43b2c0e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  List: {fileID: 3338518194468082533}
+  spritesForQuantities:
+  - {fileID: 21300000, guid: 3f9c6d2d1e51d7e4d8cd41fd71e671d0, type: 3}
+  - {fileID: 21300000, guid: 011b6f078187e144cbec81c5c6e849ad, type: 3}
+  - {fileID: 21300000, guid: 93ea93896bfcebb43b4961f90a96dcef, type: 3}
+  imagesItems:
+  - {fileID: 6690789143641662953}
+  - {fileID: 2851651830759111994}
+  - {fileID: 6382114840921416937}
+  - {fileID: 1988744265680688503}
+  - {fileID: 6002519672295805106}
+  - {fileID: 969129128264212632}
+  - {fileID: 8796604068313181628}
+  - {fileID: 6583310068995210161}
+  imagesQuantity:
+  - {fileID: 5763680751561165080}
+  - {fileID: 1904485754009462588}
+  - {fileID: 8518852078563668422}
+  - {fileID: 5040129530388425621}
+  - {fileID: 8952068771594030210}
+  - {fileID: 5065257516207764025}
+  - {fileID: 7519679145134997393}
+  - {fileID: 6740086434984496559}
 --- !u!1 &3011580314694868473
 GameObject:
   m_ObjectHideFlags: 0

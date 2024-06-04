@@ -12,11 +12,26 @@ public class ArmsMovement : MonoBehaviour
     private Quaternion targetRotation;
     private PickUpScript _pickUp;
 
+    [SerializeField]
+    GameObject _arm;
+
+    public float extensionLength = 1.5f;
+    public float retracedLength = 0f;
+    public float extensionTime = 1f;
+    public float retractTime = 1f;
+    public AnimationCurve extensionCurve;
+
+    private bool handHeldUp = false;
+    private float currentExtension = 0f;
+    private float offset = 0;
+    private Vector3 og_position;
+
     private void Start()
     {
         _pickUp = GetComponentInChildren<PickUpScript>();
         _playerCameraScript = FindObjectOfType<PlayerCameraScript>();
         transform.GetComponentInChildren<Collider>().enabled = false;
+        og_position = _arm.transform.localPosition;
     }
 
     private void Update()
@@ -24,20 +39,43 @@ public class ArmsMovement : MonoBehaviour
         mousePos = _playerCameraScript.GetViewVector();
         direction = mousePos;
         targetRotation = Quaternion.LookRotation(direction);
-
-        if (Input.GetMouseButton(RightArm ? 1 : 0))
+        handHeldUp = Input.GetMouseButton(RightArm ? 1 : 0);
+        if (handHeldUp)
         {
+
             if(!RightArm)
                 transform.GetComponentInChildren<Collider>().enabled = true;
             transform.rotation = targetRotation;
         }
 
         GoBack();
+        ExtendingLeftArm();
+    }
+
+    private void ExtendingLeftArm()
+    {
+        if(RightArm)
+            return;
+        if(!handHeldUp)
+        {
+            currentExtension = 0;
+            _arm.transform.localPosition = og_position;
+            return;
+        }
+        if(Input.GetKey(KeyCode.LeftShift))
+            currentExtension += Time.deltaTime / extensionTime;
+        else
+            currentExtension -= Time.deltaTime / retractTime;
+        currentExtension = Mathf.Clamp(currentExtension, 0, 1);
+        offset = Mathf.Lerp(retracedLength, extensionLength, extensionCurve.Evaluate(currentExtension));
+        _arm.transform.localPosition = Vector3.forward * offset + og_position;
+
+        
     }
 
     void GoBack()
     {
-        if (!Input.GetMouseButton(RightArm ? 1 : 0))
+        if (!handHeldUp)
         {
             _pickUp.DropItem();
             transform.localRotation = Quaternion.Euler(80.7f, 0f, 0f);

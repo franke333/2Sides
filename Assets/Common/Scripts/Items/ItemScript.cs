@@ -11,7 +11,6 @@ public class ItemScript : MonoBehaviour, IInteractable
     private PlayerCameraScript _playerCameraScript;
 
     MeshRenderer[] _meshRenderers;
-    HighlightScript _highlightScript;
 
     [SerializeField]
     AudioClip _fallToTheGroundClip;
@@ -34,9 +33,6 @@ public class ItemScript : MonoBehaviour, IInteractable
         _meshRenderers = GetComponentsInChildren<MeshRenderer>();
 
         _playerCameraScript = FindObjectOfType<PlayerCameraScript>();
-
-        _highlightScript = gameObject.AddComponent<HighlightScript>();
-        _highlightScript.Init(_meshRenderers, Color.yellow);
 
         gameObject.AddComponent<HittingGroundSusScript>();
         _source = gameObject.AddComponent<AudioSource>();
@@ -62,12 +58,10 @@ public class ItemScript : MonoBehaviour, IInteractable
 
     public void HoverOver()
     {
-        _highlightScript.Highlight();
     }
 
     public void HoverOut()
     {
-        _highlightScript.RemoveHighlight();
     }
 
     public void InteractView(bool value)

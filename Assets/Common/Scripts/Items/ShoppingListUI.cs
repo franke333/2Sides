@@ -21,13 +21,22 @@ public class ShoppingListUI : SingletonClass<ShoppingListUI>
 
     private Dictionary<string, Sprite> textMap;
 
-    private void Start()
+    protected override void Awake()
     {
+        base.Awake();
         var resources = Resources.LoadAll<Sprite>("ShoppingList");
         textMap = new Dictionary<string, Sprite>();
         foreach (var item in resources)
         {
             textMap.Add(item.name, item);
+        }
+        foreach (var item in imagesItems)
+        {
+            item.gameObject.SetActive(false);
+        }
+        foreach (var item in imagesQuantity)
+        {
+            item.gameObject.SetActive(false);
         }
     }
 
@@ -44,6 +53,8 @@ public class ShoppingListUI : SingletonClass<ShoppingListUI>
             if(items.Contains(item))
                 continue;
             items.Add(item);
+            Debug.Log("Image items " + imagesItems.Count);
+            Debug.Log("TextMap " + textMap.Count);
             imagesItems[items.Count - 1].sprite = textMap[item.ToLower()];
             imagesQuantity[items.Count - 1].sprite = spritesForQuantities[count-1];
             imagesItems[items.Count - 1].gameObject.SetActive(true);
