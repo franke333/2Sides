@@ -51,8 +51,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Casserole
   throwForce: 1000
-  _fallToTheGroundClip: {fileID: 0}
-  _putInCartClip: {fileID: 0}
+  _fallToTheGroundClip: {fileID: 8300000, guid: 0c907d3fb47cdaa4fa3bf145577bf373,
+    type: 3}
+  _putInCartClip: {fileID: 8300000, guid: d76fc5ff324f6224086a43c56886311e, type: 3}
   _baceCooldown: 1
 --- !u!54 &978473485300724795
 Rigidbody:

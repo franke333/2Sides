@@ -51,8 +51,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Bucket
   throwForce: 1000
-  _fallToTheGroundClip: {fileID: 0}
-  _putInCartClip: {fileID: 0}
+  _fallToTheGroundClip: {fileID: 8300000, guid: 029064c762f7a634089615b42600f9ff,
+    type: 3}
+  _putInCartClip: {fileID: 8300000, guid: ee2910755ab336e47ab4543b45443da9, type: 3}
   _baceCooldown: 1
 --- !u!54 &6022436231538567763
 Rigidbody:

@@ -49,10 +49,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 539414584b4621b419e94b491da7261d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Wine
+  itemName: Alcohol
   throwForce: 1000
-  _fallToTheGroundClip: {fileID: 0}
-  _putInCartClip: {fileID: 0}
+  _fallToTheGroundClip: {fileID: 8300000, guid: 02ec45d5575029e488b6fd4c727f68e4,
+    type: 3}
+  _putInCartClip: {fileID: 8300000, guid: b35ca18a6ee63cf4db0ee1d46dec09d0, type: 3}
   _baceCooldown: 1
 --- !u!54 &5801258427564654450
 Rigidbody:

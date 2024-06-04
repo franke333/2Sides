@@ -17,11 +17,14 @@ public class GameManager : SingletonClass<GameManager>
     SecurityManager _sm;
     bool _gameOver = false;
 
+    float startingTime;
+
     public bool GameOverSequence => _gameOver;
 
     void Start()
     {
         _sm = SecurityManager.Instance;
+        startingTime = CurrentTime;
     }
 
     // Update is called once per frame
@@ -74,6 +77,7 @@ public class GameManager : SingletonClass<GameManager>
             SceneManager.LoadScene("Title Screen");
             return;
         }
+        WinScene.Instance.EndTime = startingTime - CurrentTime;
         SceneManager.LoadScene("WinScene");
     }
 

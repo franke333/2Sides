@@ -51,8 +51,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Pringles
   throwForce: 1000
-  _fallToTheGroundClip: {fileID: 0}
-  _putInCartClip: {fileID: 0}
+  _fallToTheGroundClip: {fileID: 8300000, guid: 029064c762f7a634089615b42600f9ff,
+    type: 3}
+  _putInCartClip: {fileID: 8300000, guid: fe14f51cd38d42443949d9c867e1a8db, type: 3}
   _baceCooldown: 1
 --- !u!54 &7140624809489900166
 Rigidbody:

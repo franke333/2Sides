@@ -52,8 +52,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Chips
   throwForce: 1000
-  _fallToTheGroundClip: {fileID: 0}
-  _putInCartClip: {fileID: 0}
+  _fallToTheGroundClip: {fileID: 8300000, guid: 02ec45d5575029e488b6fd4c727f68e4,
+    type: 3}
+  _putInCartClip: {fileID: 8300000, guid: fe14f51cd38d42443949d9c867e1a8db, type: 3}
   _baceCooldown: 1
 --- !u!54 &4764555453182558838
 Rigidbody:

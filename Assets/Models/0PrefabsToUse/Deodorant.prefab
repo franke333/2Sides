@@ -52,8 +52,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Deodorant
   throwForce: 1000
-  _fallToTheGroundClip: {fileID: 0}
-  _putInCartClip: {fileID: 0}
+  _fallToTheGroundClip: {fileID: 8300000, guid: 029064c762f7a634089615b42600f9ff,
+    type: 3}
+  _putInCartClip: {fileID: 8300000, guid: 3e71f8524ae98f241b292a10cb1ac09d, type: 3}
   _baceCooldown: 1
 --- !u!54 &3476224139140520353
 Rigidbody:

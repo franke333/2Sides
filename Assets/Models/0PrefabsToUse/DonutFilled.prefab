@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6134418606340126465
+--- !u!1 &8273989532294539249
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,59 +8,61 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1535432359418250162}
-  - component: {fileID: 6633888458824524251}
-  - component: {fileID: 2989362148665967047}
-  - component: {fileID: 7928255992350532787}
-  - component: {fileID: 834812614634505450}
-  - component: {fileID: 4433445050367243831}
+  - component: {fileID: 7113816556314734735}
+  - component: {fileID: 5637002168145467714}
+  - component: {fileID: 4514949999445108360}
+  - component: {fileID: 8398670825786340740}
+  - component: {fileID: 5233957442688210986}
+  - component: {fileID: 4102682265130776324}
+  - component: {fileID: 2383211489622553145}
   m_Layer: 6
-  m_Name: Yogurt 1
+  m_Name: DonutFilled
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1535432359418250162
+--- !u!4 &7113816556314734735
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6134418606340126465}
+  m_GameObject: {fileID: 8273989532294539249}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.89, y: -0.286, z: 33.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 914855286562274799}
+  - {fileID: 1760799261505836102}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6633888458824524251
+--- !u!114 &5637002168145467714
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6134418606340126465}
+  m_GameObject: {fileID: 8273989532294539249}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 539414584b4621b419e94b491da7261d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Yogurt
+  itemName: DonutFilled
   throwForce: 1000
-  _fallToTheGroundClip: {fileID: 0}
-  _putInCartClip: {fileID: 0}
+  _fallToTheGroundClip: {fileID: 8300000, guid: 0c907d3fb47cdaa4fa3bf145577bf373,
+    type: 3}
+  _putInCartClip: {fileID: 8300000, guid: d76fc5ff324f6224086a43c56886311e, type: 3}
   _baceCooldown: 1
---- !u!54 &2989362148665967047
+--- !u!54 &4514949999445108360
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6134418606340126465}
+  m_GameObject: {fileID: 8273989532294539249}
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
@@ -81,35 +83,13 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &7928255992350532787
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6134418606340126465}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -7930675885777859025, guid: 5f476753c17036848876e926d0e1f4cb, type: 3}
---- !u!65 &834812614634505450
+--- !u!65 &8398670825786340740
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6134418606340126465}
+  m_GameObject: {fileID: 8273989532294539249}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -122,15 +102,38 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 0.096066475, y: 0.35, z: 0.11392975}
-  m_Center: {x: 0, y: 0.17, z: 0}
---- !u!135 &4433445050367243831
+  m_Size: {x: 0.33439207, y: 0.86935806, z: 0.1365509}
+  m_Center: {x: 0.005988598, y: 0.4386946, z: 0.003376007}
+--- !u!136 &5233957442688210986
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8273989532294539249}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 0.1023453
+  m_Height: 0.44611004
+  m_Direction: 1
+  m_Center: {x: -0.004045889, y: 0.17561392, z: 0}
+--- !u!135 &4102682265130776324
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6134418606340126465}
+  m_GameObject: {fileID: 8273989532294539249}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -143,67 +146,89 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Radius: 0.13
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1001 &339992810248985681
+--- !u!64 &2383211489622553145
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8273989532294539249}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 1
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -613639277381318848, guid: 0206e7d642b566e4d86a5495e7974967, type: 3}
+--- !u!1001 &8445718097972317125
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1535432359418250162}
+    m_TransformParent: {fileID: 7113816556314734735}
     m_Modifications:
-    - target: {fileID: 238142181859998468, guid: c6620d6b4a7739546bad33bcf589b1c7,
+    - target: {fileID: 7354794808203363641, guid: 2cd7ac6395fa685428cea96e2ca9d347,
         type: 3}
       propertyPath: m_Name
-      value: Yogurt (1)
+      value: DonutFull
       objectReference: {fileID: 0}
-    - target: {fileID: 578111814529540542, guid: c6620d6b4a7739546bad33bcf589b1c7,
+    - target: {fileID: 7879797714461466499, guid: 2cd7ac6395fa685428cea96e2ca9d347,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 578111814529540542, guid: c6620d6b4a7739546bad33bcf589b1c7,
+    - target: {fileID: 7879797714461466499, guid: 2cd7ac6395fa685428cea96e2ca9d347,
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 578111814529540542, guid: c6620d6b4a7739546bad33bcf589b1c7,
+    - target: {fileID: 7879797714461466499, guid: 2cd7ac6395fa685428cea96e2ca9d347,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 578111814529540542, guid: c6620d6b4a7739546bad33bcf589b1c7,
+    - target: {fileID: 7879797714461466499, guid: 2cd7ac6395fa685428cea96e2ca9d347,
         type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 578111814529540542, guid: c6620d6b4a7739546bad33bcf589b1c7,
+    - target: {fileID: 7879797714461466499, guid: 2cd7ac6395fa685428cea96e2ca9d347,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 578111814529540542, guid: c6620d6b4a7739546bad33bcf589b1c7,
+    - target: {fileID: 7879797714461466499, guid: 2cd7ac6395fa685428cea96e2ca9d347,
         type: 3}
       propertyPath: m_LocalRotation.y
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 578111814529540542, guid: c6620d6b4a7739546bad33bcf589b1c7,
+    - target: {fileID: 7879797714461466499, guid: 2cd7ac6395fa685428cea96e2ca9d347,
         type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 578111814529540542, guid: c6620d6b4a7739546bad33bcf589b1c7,
+    - target: {fileID: 7879797714461466499, guid: 2cd7ac6395fa685428cea96e2ca9d347,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 578111814529540542, guid: c6620d6b4a7739546bad33bcf589b1c7,
+    - target: {fileID: 7879797714461466499, guid: 2cd7ac6395fa685428cea96e2ca9d347,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 578111814529540542, guid: c6620d6b4a7739546bad33bcf589b1c7,
+    - target: {fileID: 7879797714461466499, guid: 2cd7ac6395fa685428cea96e2ca9d347,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
@@ -212,10 +237,10 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c6620d6b4a7739546bad33bcf589b1c7, type: 3}
---- !u!4 &914855286562274799 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: 2cd7ac6395fa685428cea96e2ca9d347, type: 3}
+--- !u!4 &1760799261505836102 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 578111814529540542, guid: c6620d6b4a7739546bad33bcf589b1c7,
+  m_CorrespondingSourceObject: {fileID: 7879797714461466499, guid: 2cd7ac6395fa685428cea96e2ca9d347,
     type: 3}
-  m_PrefabInstance: {fileID: 339992810248985681}
+  m_PrefabInstance: {fileID: 8445718097972317125}
   m_PrefabAsset: {fileID: 0}
