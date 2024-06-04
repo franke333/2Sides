@@ -71,6 +71,10 @@ public class AudioManager : SingletonClass<AudioManager>
 
     private IEnumerator PlayLostChildAndScheduleNewOne()
     {
+        if (GameManager.Instance.tutorial)
+        {
+            yield break;
+        }
         yield return new WaitForSeconds(Random.Range(5, 20));
         while (!BabyQuest.Instance.isComplete)
         {

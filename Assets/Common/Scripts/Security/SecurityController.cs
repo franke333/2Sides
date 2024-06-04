@@ -45,7 +45,7 @@ public class SecurityController : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(speedUpdate);
+        //Debug.Log(speedUpdate);
         if (Chasing)
         {
             if (speedUpdate > 5f)

@@ -36783,6 +36783,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5180882832721279607, guid: 2f0b31cb374bd12489ed63c4f26d33fe,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 226804477ffbf9f4eb42bef67a457e37, type: 2}
+    - target: {fileID: 5180882832721279607, guid: 2f0b31cb374bd12489ed63c4f26d33fe,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].time
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180882832721279607, guid: 2f0b31cb374bd12489ed63c4f26d33fe,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
+      value: 0.07507515
+      objectReference: {fileID: 0}
+    - target: {fileID: 7054435858129561024, guid: 2f0b31cb374bd12489ed63c4f26d33fe,
+        type: 3}
+      propertyPath: increment
+      value: 0.043
+      objectReference: {fileID: 0}
     - target: {fileID: 7435874219024921522, guid: 2f0b31cb374bd12489ed63c4f26d33fe,
         type: 3}
       propertyPath: m_IncludeLayers.m_Bits

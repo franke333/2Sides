@@ -7,6 +7,8 @@ public class PickUpScript : MonoBehaviour
 {
     private IInteractable _currentInteractible;
 
+    private TrajectoryScript _trajectoryScript;
+
     private bool touched = false;
 
     private Transform holdPos;
@@ -14,6 +16,13 @@ public class PickUpScript : MonoBehaviour
     public Transform HoldPosRight;
 
     private bool rightArmItem;
+
+    private GameObject _currentItem;
+
+    private void Start()
+    {
+        _trajectoryScript = GetComponent<TrajectoryScript>();
+    }
 
     private void Update()
     {
@@ -40,6 +49,7 @@ public class PickUpScript : MonoBehaviour
                 holdPos = HoldPosRight;
                 rightArmItem = true;
             }
+            _currentItem = col.gameObject;
             var item = col.GetComponentInParent<IInteractable>();
             _currentInteractible = item;
             touched = true;
@@ -53,6 +63,7 @@ public class PickUpScript : MonoBehaviour
         {
             touched = false;
             _currentInteractible.Touch(touched, holdPos);
+            _trajectoryScript.SetObjectToThrow(null);
         }
     }
 
@@ -60,8 +71,13 @@ public class PickUpScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q) && rightArmItem == false)
         {
+            _trajectoryScript.SetObjectToThrow(_currentItem.GetComponent<Rigidbody>());
+        }
+        if (Input.GetKeyUp(KeyCode.Q) && rightArmItem == false)
+        {
             touched = false;
             _currentInteractible.Throw();
+            _trajectoryScript.SetObjectToThrow(null);
         }
         if (Input.GetKeyUp(KeyCode.E) && rightArmItem == true)
         {
