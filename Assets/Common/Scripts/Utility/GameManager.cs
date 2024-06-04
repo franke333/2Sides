@@ -52,6 +52,7 @@ public class GameManager : SingletonClass<GameManager>
         if (_gameOver)
             return;
         CurrentTime += amount;
+        StartCoroutine(ColorTimer(Color.green));
         AudioManager.Instance.PlayTimeAdded();
     }
 
@@ -60,6 +61,7 @@ public class GameManager : SingletonClass<GameManager>
         if (_gameOver)
             return;
         CurrentTime -= amount;
+        StartCoroutine(ColorTimer(Color.red));
         AudioManager.Instance.PlayTimeRemoved();
     }
 
@@ -75,4 +77,12 @@ public class GameManager : SingletonClass<GameManager>
     }
 
     public float GetTime() => CurrentTime;
+
+    IEnumerator ColorTimer(Color color)
+    {
+        Color originalColor = Timer.color;
+        Timer.color = color;
+        yield return new WaitForSeconds(2);
+        Timer.color = originalColor;
+    }
 }

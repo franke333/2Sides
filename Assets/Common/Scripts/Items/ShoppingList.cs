@@ -92,9 +92,12 @@ public class ShoppingList : SingletonClass<ShoppingList>
         {
             cart[itemScript.itemName] += 1;
         }
-        GameManager.Instance.AddTime(10f);
         if (CurrentList[itemScript.itemName] == cart[itemScript.itemName])
+        {
             ShoppingListUI.Instance.ItemCompleted(itemScript.itemName);
+            GameManager.Instance.AddTime(10f);
+        }
+
         checkCart = true;
     }
 
