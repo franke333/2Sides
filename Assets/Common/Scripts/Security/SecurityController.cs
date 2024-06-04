@@ -26,6 +26,7 @@ public class SecurityController : MonoBehaviour
     private float _gizmosCd = -10f;
 
     public bool Chasing = false;
+    float speedUpdate = 0f;
 
     Tween _anim;
     NavMeshAgent _navMeshAgent;
@@ -44,7 +45,14 @@ public class SecurityController : MonoBehaviour
 
     private void Update()
     {
-        if(Chasing)
+        Debug.Log(speedUpdate);
+        if (Chasing)
+            if (speedUpdate > 5f)
+            {
+                _navMeshAgent.speed += 1f;
+                speedUpdate = 0f;
+            }
+            speedUpdate += Time.deltaTime;  
             RunAnimation();
         //currently moving. stop turning
         if(_navMeshAgent.hasPath)
