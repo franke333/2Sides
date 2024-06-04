@@ -47,13 +47,15 @@ public class SecurityController : MonoBehaviour
     {
         Debug.Log(speedUpdate);
         if (Chasing)
+        {
             if (speedUpdate > 5f)
             {
-                _navMeshAgent.speed += 1f;
+                _navMeshAgent.speed += 1.25f;
                 speedUpdate = 0f;
             }
-            speedUpdate += Time.deltaTime;  
+            speedUpdate += Time.deltaTime;
             RunAnimation();
+        }
         //currently moving. stop turning
         if(_navMeshAgent.hasPath)
             return;
