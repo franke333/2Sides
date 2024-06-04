@@ -51,8 +51,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Wine
   throwForce: 1000
-  _fallToTheGroundClip: {fileID: 0}
-  _putInCartClip: {fileID: 0}
+  _fallToTheGroundClip: {fileID: 8300000, guid: 02ec45d5575029e488b6fd4c727f68e4,
+    type: 3}
+  _putInCartClip: {fileID: 8300000, guid: b35ca18a6ee63cf4db0ee1d46dec09d0, type: 3}
   _baceCooldown: 1
 --- !u!54 &3110955067251719642
 Rigidbody:

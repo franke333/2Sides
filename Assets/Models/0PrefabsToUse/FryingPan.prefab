@@ -49,8 +49,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: FryingPan
   throwForce: 1000
-  _fallToTheGroundClip: {fileID: 0}
-  _putInCartClip: {fileID: 0}
+  _fallToTheGroundClip: {fileID: 8300000, guid: 0c907d3fb47cdaa4fa3bf145577bf373,
+    type: 3}
+  _putInCartClip: {fileID: 8300000, guid: b35ca18a6ee63cf4db0ee1d46dec09d0, type: 3}
   _baceCooldown: 1
 --- !u!54 &4770707699580788306
 Rigidbody:

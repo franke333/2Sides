@@ -51,8 +51,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Yogurt
   throwForce: 1000
-  _fallToTheGroundClip: {fileID: 0}
-  _putInCartClip: {fileID: 0}
+  _fallToTheGroundClip: {fileID: 8300000, guid: 0f91f7b89d402414d809b45ee9c799fb,
+    type: 3}
+  _putInCartClip: {fileID: 8300000, guid: 3e71f8524ae98f241b292a10cb1ac09d, type: 3}
   _baceCooldown: 1
 --- !u!54 &395317041009460775
 Rigidbody:

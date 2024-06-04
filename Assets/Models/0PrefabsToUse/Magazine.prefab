@@ -51,8 +51,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Magazine
   throwForce: 1000
-  _fallToTheGroundClip: {fileID: 0}
-  _putInCartClip: {fileID: 0}
+  _fallToTheGroundClip: {fileID: 8300000, guid: 0f91f7b89d402414d809b45ee9c799fb,
+    type: 3}
+  _putInCartClip: {fileID: 8300000, guid: ee2910755ab336e47ab4543b45443da9, type: 3}
   _baceCooldown: 1
 --- !u!54 &3053177263955186599
 Rigidbody:
