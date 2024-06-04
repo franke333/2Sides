@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8730554907649418996}
   - component: {fileID: 2772740079683218471}
   m_Layer: 6
-  m_Name: Yogurt
+  m_Name: Yoghurt
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 539414584b4621b419e94b491da7261d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Yogurt
+  itemName: Yoghurt
   throwForce: 1000
   _fallToTheGroundClip: {fileID: 8300000, guid: 0f91f7b89d402414d809b45ee9c799fb,
     type: 3}
