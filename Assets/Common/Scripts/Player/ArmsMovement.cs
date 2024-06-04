@@ -45,8 +45,12 @@ public class ArmsMovement : MonoBehaviour
 
             if(!RightArm)
                 transform.GetComponentInChildren<Collider>().enabled = true;
+            if(RightArm)
+                _arm.transform.localPosition = og_position - Vector3.forward * 0.5f;
             transform.rotation = targetRotation;
         }
+        else if(RightArm)
+            _arm.transform.localPosition = og_position;
 
         GoBack();
         ExtendingLeftArm();

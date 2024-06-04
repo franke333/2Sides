@@ -1,4 +1,7 @@
+using DG.Tweening;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -21,11 +24,18 @@ public class ItemScript : MonoBehaviour, IInteractable
 
     float _lastVelocity = 0.5f;
 
+    bool _isBeingHeld = false;
     bool _cooldownRunning = false;
     [SerializeField]
     float _baceCooldown = 1f;
     float _cooldown;
     bool _toBeLocked = false; //false means it will be shot from cart and decrease Time
+
+    // retain velocity
+    private int rememberVelocityQueue = 4;
+    private float importanceMultiplier = 0.9f;
+    private Queue<Vector3> positionsQueue;
+    private float velocityMultiplier = 25f;
 
 
     private void Start()
@@ -40,11 +50,15 @@ public class ItemScript : MonoBehaviour, IInteractable
         _rb = GetComponent<Rigidbody>();
 
         _cooldown = _baceCooldown;
+        positionsQueue = new Queue<Vector3>();
     }
 
     private void FixedUpdate()
     {
         _lastVelocity = _rb.velocity.magnitude;
+        positionsQueue.Enqueue(transform.position);
+        if(positionsQueue.Count > rememberVelocityQueue)
+            positionsQueue.Dequeue();
     }
 
     public void Update()
@@ -54,6 +68,26 @@ public class ItemScript : MonoBehaviour, IInteractable
         _cooldown -= Time.deltaTime;
         if (_cooldown < 0)
             OnCooldownFInish();
+    }
+
+    private void AddRetainedVelocityOnLetGo()
+    {
+        Vector3 sum = Vector3.zero;
+        float multiplier = 1f;
+        float multSum = 0;
+        Vector3 lastPos = transform.position;
+        positionsQueue.Enqueue(lastPos);
+        foreach (var pos in positionsQueue.Reverse())
+        {
+            sum += (lastPos - pos) * multiplier;
+            Debug.Log("offset: " + (lastPos-pos));
+            multSum += multiplier;
+            multiplier *= importanceMultiplier;
+            lastPos = pos;
+            
+        }
+        Debug.Log("sum: " + sum);
+        _rb.AddForce(sum * velocityMultiplier / multSum, ForceMode.Impulse);
     }
 
     public void HoverOver()
@@ -100,12 +134,16 @@ public class ItemScript : MonoBehaviour, IInteractable
             transform.GetComponent<Rigidbody>().isKinematic = true;
             transform.parent = h.transform;
             transform.position = h.transform.position;
+            _isBeingHeld = true;
             return;
         }
         else
         {
             transform.parent = null;
             transform.GetComponent<Rigidbody>().isKinematic = false;
+            _isBeingHeld = false;
+            AddRetainedVelocityOnLetGo();
+            positionsQueue.Clear();
             foreach (var collider in GetComponentsInChildren<Collider>())
             {
                 Physics.IgnoreCollision(PlayerController.Instance.Body.GetComponent<Collider>(), collider, true);

@@ -20,6 +20,10 @@ public class ShoppingList : SingletonClass<ShoppingList>
 
     private void Start()
     {
+        if (GameManager.Instance.tutorial)
+        {
+            return;
+        }
         for (int i = 0; i < items.Count; i++)
         {
             wholeList.Add(items[i], Random.Range(1, 4));
@@ -31,6 +35,8 @@ public class ShoppingList : SingletonClass<ShoppingList>
     }
     private bool IsListItem(string itemName)
     {
+        if (GameManager.Instance.tutorial && itemName == "Tomato")
+            return true;
         if (!CurrentList.ContainsKey(itemName))
             return false;
         //true if there is less in the cart than in the list
@@ -65,8 +71,25 @@ public class ShoppingList : SingletonClass<ShoppingList>
             checkCart = false;
         }
 
-        if (hasReachedCheckPoint)
+        if (hasReachedCheckPoint && !HasAllItems)
         {
+            if (GameManager.Instance.tutorial)
+            {
+                Debug.Log("Tutorial check");
+                if (CurrentList.Count > 1)
+                {
+                    Debug.Log("Tutorial complete");
+                    HasAllItems = true;
+                    TutorialManager.Instance.TutorialDone();
+                }
+                else
+                {
+                    Debug.Log("Tutorial next");
+                    hasReachedCheckPoint = false;
+                    TutorialManager.Instance.FirstShoppingListDone();
+                }
+                return;
+            }
             if (CurrentList.Count < 3)
             {
                 RandomItem(4);
@@ -84,6 +107,8 @@ public class ShoppingList : SingletonClass<ShoppingList>
 
     public void CheckItem(ItemScript itemScript)
     {
+        if(GameManager.Instance.tutorial && itemScript.itemName == "Tomato")
+            return;
         if (!cart.ContainsKey(itemScript.itemName))
         {
             cart.Add(itemScript.itemName, 1);

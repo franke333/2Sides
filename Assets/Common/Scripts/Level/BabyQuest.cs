@@ -8,6 +8,10 @@ public class BabyQuest : SingletonClass<BabyQuest>
 
     private void OnTriggerEnter(Collider col)
     {
+        if(col.transform.parent == null)
+        {
+            return;
+        }
         if (col.transform.parent.name == "Karen")
         {
             GameManager.Instance.AddTime(50f);
