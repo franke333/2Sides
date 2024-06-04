@@ -6,9 +6,11 @@ using TMPro;
 using UnityEngine.SceneManagement;
 
 public class GameManager : SingletonClass<GameManager>
-{ 
+{
+    public bool tutorial = false;
 
     [SerializeField] float CurrentTime = 60f;
+
 
     [SerializeField] TextMeshProUGUI Timer;
 
@@ -72,6 +74,11 @@ public class GameManager : SingletonClass<GameManager>
 
     public void GameWon()
     {
+        if(tutorial)
+        {
+            SceneManager.LoadScene("Title Screen");
+            return;
+        }
         WinScene.Instance.EndTime = startingTime - CurrentTime;
         SceneManager.LoadScene("WinScene");
     }

@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 539414584b4621b419e94b491da7261d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: RubicsCube
+  itemName: Toy
   throwForce: 1000
   _fallToTheGroundClip: {fileID: 8300000, guid: 029064c762f7a634089615b42600f9ff,
     type: 3}

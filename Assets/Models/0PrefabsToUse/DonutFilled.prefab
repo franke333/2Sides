@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4102682265130776324}
   - component: {fileID: 2383211489622553145}
   m_Layer: 6
-  m_Name: DonutFull
+  m_Name: DonutFilled
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 539414584b4621b419e94b491da7261d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: DonutFull
+  itemName: DonutFilled
   throwForce: 1000
   _fallToTheGroundClip: {fileID: 8300000, guid: 0c907d3fb47cdaa4fa3bf145577bf373,
     type: 3}
