@@ -53,6 +53,12 @@ public class PickUpScript : MonoBehaviour
             var item = col.GetComponentInParent<IInteractable>();
             _currentInteractible = item;
             touched = true;
+
+            if(_currentItem.TryGetComponent(out ItemScript itemS))
+            {
+                itemS.pickUp = this;
+            }
+
             return;
         }
     }

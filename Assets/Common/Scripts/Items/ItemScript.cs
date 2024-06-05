@@ -22,6 +22,8 @@ public class ItemScript : MonoBehaviour, IInteractable
     AudioSource _source;
     Rigidbody _rb;
 
+    public PickUpScript pickUp;
+
     float _lastVelocity = 0.5f;
 
     bool _isBeingHeld = false;
@@ -168,7 +170,7 @@ public class ItemScript : MonoBehaviour, IInteractable
 
     private IEnumerator Untouchable()
     {
-        float countDown = 1f;
+        float countDown = 0.5f;
         while (countDown >= 0)
         {
             Physics.IgnoreLayerCollision(3, 6, true); // Ignore collisions for item and player so it could fly away
@@ -198,12 +200,20 @@ public class ItemScript : MonoBehaviour, IInteractable
 
     private void OnCooldownFInish()
     {
+        if (_isBeingHeld)
+        {
+            StartCoroutine(Untouchable());
+            pickUp.DropItem();
+            StartLockToCart();
+            return;
+        }
         if (_toBeLocked)
         {
             gameObject.tag = "Untagged";
             ShoppingList.Instance.CheckItem(this);
             transform.SetParent(ShoppingCartScript.Instance.transform);
             ShoppingCartScript.Instance.GetComponent<Rigidbody>().mass += _rb.mass;
+            gameObject.layer = 0;
             Destroy(_rb);
             Destroy(this); //this script
         }
