@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5527113687682098272}
-  - component: {fileID: 6060355704803674715}
   - component: {fileID: 7713472937995220321}
   - component: {fileID: 8429356632677747940}
   - component: {fileID: 7710154009808709691}
   - component: {fileID: 7700439892346201307}
+  - component: {fileID: 4804282492962377067}
   m_Layer: 6
   m_Name: WoodenPalett
   m_TagString: Item
@@ -37,24 +37,6 @@ Transform:
   - {fileID: 8795486609626594751}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6060355704803674715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7528302479625440084}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 539414584b4621b419e94b491da7261d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemName: WoodenPalett
-  throwForce: 1000
-  _fallToTheGroundClip: {fileID: 8300000, guid: 0c907d3fb47cdaa4fa3bf145577bf373,
-    type: 3}
-  _putInCartClip: {fileID: 8300000, guid: d76fc5ff324f6224086a43c56886311e, type: 3}
-  _baceCooldown: 1
 --- !u!54 &7713472937995220321
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -63,7 +45,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7528302479625440084}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -146,6 +128,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.13
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4804282492962377067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7528302479625440084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f91432132c37d34b817dc1967d9c2e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  throwForce: 1000
 --- !u!1001 &4878678591095047704
 PrefabInstance:
   m_ObjectHideFlags: 0
