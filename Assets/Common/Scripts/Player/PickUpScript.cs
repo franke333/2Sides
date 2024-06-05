@@ -19,6 +19,8 @@ public class PickUpScript : MonoBehaviour
 
     private GameObject _currentItem;
 
+    public bool holdingCart = false;
+
     private void Start()
     {
         _trajectoryScript = GetComponent<TrajectoryScript>();
@@ -31,6 +33,8 @@ public class PickUpScript : MonoBehaviour
             ThrowItem();
             _currentInteractible.Touch(touched, holdPos);
         }
+        else
+            holdingCart = false;
     }
 
     private void OnTriggerEnter(Collider col)
@@ -57,6 +61,10 @@ public class PickUpScript : MonoBehaviour
             if(_currentItem.TryGetComponent(out ItemScript itemS))
             {
                 itemS.pickUp = this;
+            }
+            if(_currentItem.transform.parent != null && _currentItem.transform.parent.tag == "Cart")
+            {
+                holdingCart = true;
             }
 
             return;

@@ -26,6 +26,8 @@ public class ArmsMovement : MonoBehaviour
     private float offset = 0;
     private Vector3 og_position;
 
+    private bool _holdingCart = false;
+
     private void Start()
     {
         _pickUp = GetComponentInChildren<PickUpScript>();
@@ -38,7 +40,17 @@ public class ArmsMovement : MonoBehaviour
     {
         mousePos = _playerCameraScript.GetViewVector();
         direction = mousePos;
-        targetRotation = Quaternion.LookRotation(direction);
+        if(!_holdingCart)
+            targetRotation = Quaternion.LookRotation(direction);
+        else
+        {
+            //ignore x rotation
+            targetRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+            //rotate little bit up
+            targetRotation = Quaternion.Euler(targetRotation.eulerAngles.x - 3, targetRotation.eulerAngles.y, targetRotation.eulerAngles.z);
+
+
+        }
         handHeldUp = Input.GetMouseButton(RightArm ? 1 : 0);
         if (handHeldUp)
         {
@@ -52,13 +64,14 @@ public class ArmsMovement : MonoBehaviour
         else if(RightArm)
             _arm.transform.localPosition = og_position;
 
+        _holdingCart = _pickUp.holdingCart;
         GoBack();
         ExtendingLeftArm();
     }
 
     private void ExtendingLeftArm()
     {
-        if(RightArm)
+        if(RightArm || _holdingCart)
             return;
         if(!handHeldUp)
         {
