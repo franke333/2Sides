@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Common/Scenes/LooseScene.unity
     guid: ea55ac00dd64e8340a458b73d1ed2ff8
+  - enabled: 1
+    path: Assets/Common/Scenes/TutorialScene.unity
+    guid: eeea8a78bd346b54a9bc2a71e852cf67
   m_configObjects: {}

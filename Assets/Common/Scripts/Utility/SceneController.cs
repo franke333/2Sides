@@ -16,6 +16,11 @@ public class SceneController : SingletonClass<SceneController>
         SceneManager.LoadScene(sceneName);
     }
 
+    public void Tutorial()
+    {
+        SceneManager.LoadScene("TutorialScene");
+    }
+
     public void GoToMenu()
     {
         SceneManager.LoadScene("Title Screen");
