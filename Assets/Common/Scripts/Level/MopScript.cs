@@ -8,7 +8,7 @@ public class MopScript : MonoBehaviour, IInteractable
     public int throwForce;
     PlayerCameraScript _playerCameraScript;
 
-
+    public bool cleaning = false;
 
     private int rememberVelocityQueue = 4;
     private float importanceMultiplier = 0.9f;
@@ -50,6 +50,8 @@ public class MopScript : MonoBehaviour, IInteractable
 
     private void OnTriggerEnter(Collider other)
     {
+        if(!cleaning)
+            return;
         if (other.gameObject.CompareTag("Honey"))
         {
             Destroy(other.gameObject);

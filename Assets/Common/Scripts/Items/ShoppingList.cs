@@ -29,7 +29,10 @@ public class ShoppingList : SingletonClass<ShoppingList>
         }
         for (int i = 0; i < items.Count; i++)
         {
-            wholeList.Add(items[i], Random.Range(1, 4));
+            int count = Random.Range(1, 4);
+            if (items[i] == "Casserole" || items[i] == "Watermelon")
+                count = 1;
+            wholeList.Add(items[i], count);
         }
 
         RandomItem(2);
@@ -97,7 +100,7 @@ public class ShoppingList : SingletonClass<ShoppingList>
             {
                 RandomItem(4);
                 ShoppingListUI.Instance.UpdateList(CurrentList);
-                GameManager.Instance.AddTime(20f);
+                GameManager.Instance.AddTime(25f);
                 hasReachedCheckPoint = false;
             }
             else
@@ -123,7 +126,7 @@ public class ShoppingList : SingletonClass<ShoppingList>
         if (CurrentList[itemScript.itemName] == cart[itemScript.itemName])
         {
             ShoppingListUI.Instance.ItemCompleted(itemScript.itemName);
-            GameManager.Instance.AddTime(10f);
+            GameManager.Instance.AddTime(10f + 2 * CurrentList[itemScript.itemName]);
         }
         objectsInCart.Add(itemScript.gameObject);
         checkCart = true;

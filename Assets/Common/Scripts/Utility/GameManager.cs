@@ -25,6 +25,7 @@ public class GameManager : SingletonClass<GameManager>
 
     void Start()
     {
+        Time.timeScale = 1;
         _sm = SecurityManager.Instance;
         startingTime = CurrentTime;
     }
@@ -85,7 +86,7 @@ public class GameManager : SingletonClass<GameManager>
             SceneManager.LoadScene("Title Screen");
             return;
         }
-        WinScene.Instance.EndTime = startingTime - CurrentTime;
+        //WinScene.Instance.EndTime = startingTime - CurrentTime;
         SceneManager.LoadScene("WinScene");
     }
 

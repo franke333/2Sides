@@ -18,6 +18,7 @@ public class BabyQuest : SingletonClass<BabyQuest>
 
             col.transform.parent.gameObject.SetActive(false);
             gameObject.SetActive(false);
+            Physics.IgnoreLayerCollision(3, 6, false);
         }
     }
 }
