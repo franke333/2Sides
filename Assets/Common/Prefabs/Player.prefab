@@ -615,7 +615,7 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: 61f94f05325ebc547a55441ddab03c25, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1017,6 +1017,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HoldPosLeft: {fileID: 927902178529614453}
   HoldPosRight: {fileID: 4256396315583407760}
+  holdingCart: 0
 --- !u!114 &6406344034421816623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1045,7 +1046,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitMarker: {fileID: 2584878338969458633}
   maxPoints: 50
-  increment: 0.025
+  increment: 0.043
   rayOverlap: 1.1
 --- !u!120 &5180882832721279607
 LineRenderer:
@@ -1068,7 +1069,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 226804477ffbf9f4eb42bef67a457e37, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1100,7 +1101,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0.07507515
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -1449,6 +1450,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HoldPosLeft: {fileID: 927902178529614453}
   HoldPosRight: {fileID: 4256396315583407760}
+  holdingCart: 0
 --- !u!1001 &640272815661031624
 PrefabInstance:
   m_ObjectHideFlags: 0
