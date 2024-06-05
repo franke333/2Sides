@@ -43,7 +43,7 @@ public class AudioOnMovementScript : MonoBehaviour
         }
         speed = Mathf.Clamp(speed, minSpeed, maxSpeed);
         float volume = volumeCurve.Evaluate(Mathf.InverseLerp(minSpeed, maxSpeed, speed));
-        audioSource.volume = Mathf.Lerp(minVolume, maxVolume, volume);
+        audioSource.volume = Mathf.Lerp(minVolume, maxVolume, volume) * SettingsManager.Instance.MasterVolume * SettingsManager.Instance.SFXVolume;
     }
 
     

@@ -81,13 +81,29 @@ public class AudioManager : SingletonClass<AudioManager>
         }
     }
 
+    public void UpdateVolumes()
+    {
+        float musicVolume = SettingsManager.Instance.MasterVolume * SettingsManager.Instance.MusicVolume;
+        float sfXVolume = SettingsManager.Instance.MasterVolume * SettingsManager.Instance.SFXVolume;
+
+        _permaAmbientSource.volume = musicVolume;
+        _escalatingAmbientSource.volume = musicVolume;
+
+        _timeAddedSource.volume = sfXVolume;
+        _timeRemovedSource.volume = sfXVolume;
+        _shoppingListUpdatedSource.volume = sfXVolume;
+        _throwItemSFXSource.volume = sfXVolume;
+        _securityAlertedSFXSource.volume = sfXVolume;
+        _lostChildAnnouncmentSource.volume = sfXVolume;
+    }
+
     public void PlaySoundAt(AudioClip clip, Vector3 position, float atVolume)
     {
         _currentPoolIndex = (_currentPoolIndex + 1) % poolSize;
         if (_sfxPool[_currentPoolIndex].isPlaying)
             return;
 
-        _sfxPool[_currentPoolIndex].volume = atVolume;
+        _sfxPool[_currentPoolIndex].volume = atVolume * SettingsManager.Instance.MasterVolume * SettingsManager.Instance.SFXVolume;
         _sfxPool[_currentPoolIndex].transform.position = position;
         _sfxPool[_currentPoolIndex].clip = clip;
         _sfxPool[_currentPoolIndex].Play();

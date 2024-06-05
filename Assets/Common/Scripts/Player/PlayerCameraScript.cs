@@ -33,8 +33,8 @@ public class PlayerCameraScript : SingletonClass<PlayerCameraScript>
 
     private void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * sensX * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * sensY * Time.deltaTime;
+        float mouseX = Input.GetAxis("Mouse X") * sensX * Time.deltaTime * SettingsManager.Instance.MouseSensitivity;
+        float mouseY = Input.GetAxis("Mouse Y") * sensY * Time.deltaTime * SettingsManager.Instance.MouseSensitivity;
 
         yRotation += mouseX;
         xRotation -= mouseY;

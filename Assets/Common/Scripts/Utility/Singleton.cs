@@ -30,6 +30,7 @@ public abstract class PersistentSingletonClass<T> : SingletonClass<T> where T : 
 
     protected override void Awake()
     {
+        transform.SetParent(null);
         DontDestroyOnLoad(gameObject);
         base.Awake();
     }
