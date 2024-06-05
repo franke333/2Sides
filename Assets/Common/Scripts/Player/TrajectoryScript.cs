@@ -12,7 +12,7 @@ public class TrajectoryScript : MonoBehaviour
     [SerializeField]
     Transform StartPosition;
 
-    ItemScript itemScript;
+    float throwForce;
 
     void OnEnable()
     {
@@ -36,7 +36,12 @@ public class TrajectoryScript : MonoBehaviour
             trajectoryPredictor.SetTrajectoryVisible(false);
             return;
         }
-        itemScript = obj.GetComponent<ItemScript>();
+        if (obj.TryGetComponent<ItemScript>(out var iscript))
+            throwForce = iscript.throwForce;
+        else if(obj.TryGetComponent<TriggerSourceAudio>(out var tsa))
+            throwForce = tsa.throwForce;
+        else if(obj.TryGetComponent<MopScript>(out var mop))
+            throwForce = mop.throwForce;
         trajectoryPredictor.SetTrajectoryVisible(true);
     }
 
@@ -60,7 +65,7 @@ public class TrajectoryScript : MonoBehaviour
 
         properties.direction = PlayerCameraScript.Instance.GetViewVector();
         properties.initialPosition = StartPosition.position + 0.2f * properties.direction;
-        properties.initialSpeed = itemScript.throwForce/50;
+        properties.initialSpeed = throwForce/50;
         properties.mass = r.mass;
         properties.drag = r.drag;
 

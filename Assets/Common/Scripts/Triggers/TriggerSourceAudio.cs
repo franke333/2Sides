@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -17,10 +18,15 @@ public class TriggerSourceAudio : MonoBehaviour, IInteractable
 
     private Transform[] _childObjects;
     private Vector3[] _directions;
-    private bool _punching = false;
+    // retain velocity
+    private int rememberVelocityQueue = 4;
+    private float importanceMultiplier = 0.9f;
+    private Queue<Vector3> positionsQueue;
+    private float velocityMultiplier = 25f;
 
     private void Start()
     {
+        positionsQueue = new Queue<Vector3>();
         _player = PlayerController.Instance;
         _playerCameraScript = FindObjectOfType<PlayerCameraScript>();
 
@@ -39,6 +45,33 @@ public class TriggerSourceAudio : MonoBehaviour, IInteractable
             _directions[i] = UnityEngine.Random.insideUnitSphere;
         }
 
+    }
+
+    private void FixedUpdate()
+    {
+        positionsQueue.Enqueue(transform.position);
+        if (positionsQueue.Count > rememberVelocityQueue)
+            positionsQueue.Dequeue();
+    }
+
+    private void AddRetainedVelocityOnLetGo()
+    {
+        Vector3 sum = Vector3.zero;
+        float multiplier = 1f;
+        float multSum = 0;
+        Vector3 lastPos = transform.position;
+        positionsQueue.Enqueue(lastPos);
+        foreach (var pos in positionsQueue.Reverse())
+        {
+            sum += (lastPos - pos) * multiplier;
+            Debug.Log("offset: " + (lastPos - pos));
+            multSum += multiplier;
+            multiplier *= importanceMultiplier;
+            lastPos = pos;
+
+        }
+        Debug.Log("sum: " + sum);
+        GetComponent<Rigidbody>().AddForce(sum * velocityMultiplier * 50 / multSum, ForceMode.Impulse);
     }
 
 
@@ -60,13 +93,6 @@ public class TriggerSourceAudio : MonoBehaviour, IInteractable
 
         float applyTrigger = math.lerp(0,maxTriggerPerSecond,1-Vector3.Distance(_player.transform.position,transform.position)/range);
         TriggerMeter.Instance.ChangeValue(applyTrigger * Time.deltaTime);
-        if (_punching)
-        {
-            for (int i = 0; i < _childObjects.Length; i++)
-            {
-                _childObjects[i].position += _directions[i] * Time.deltaTime * 3;
-            }
-        }
     }
 
     private void OnDrawGizmos()
@@ -105,6 +131,7 @@ public class TriggerSourceAudio : MonoBehaviour, IInteractable
         {
             transform.parent = null;
             transform.GetComponent<Rigidbody>().isKinematic = false;
+            AddRetainedVelocityOnLetGo();
             foreach (var collider in GetComponentsInChildren<Collider>())
             {
                 Physics.IgnoreCollision(PlayerController.Instance.Body.GetComponent<Collider>(), collider, false);
