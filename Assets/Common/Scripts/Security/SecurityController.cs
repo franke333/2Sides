@@ -181,6 +181,10 @@ public class SecurityController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider col)
     {
+        if(GameManager.Instance == null)
+        {
+            return;
+        }
         if (GameManager.Instance.GameOverSequence && col.gameObject.layer == 3) // If the collision is with Player layer
         {
             GameManager.Instance.GameOver();

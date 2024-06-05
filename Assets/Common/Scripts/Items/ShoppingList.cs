@@ -23,7 +23,7 @@ public class ShoppingList : SingletonClass<ShoppingList>
 
     private void Start()
     {
-        if (GameManager.Instance.tutorial)
+        if (GameManager.Instance == null || GameManager.Instance.tutorial)
         {
             return;
         }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4796752006232329912}
   - component: {fileID: 3224607102904071656}
   - component: {fileID: 7130188409014340533}
+  - component: {fileID: 9074583800712430601}
   m_Layer: 0
   m_Name: water
   m_TagString: Water
@@ -131,6 +132,22 @@ CapsuleCollider:
   m_Height: 20
   m_Direction: 1
   m_Center: {x: 0.00000005960464, y: 0.00000023841858, z: 0.0000003874302}
+--- !u!208 &9074583800712430601
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1586384185739457006}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.5, y: 1, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1001 &435344880419589319
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -142,17 +159,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 527a3a7ee216ea241b20bc34e1046474,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.3567033
+      value: 15.731405
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 527a3a7ee216ea241b20bc34e1046474,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.6000004
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 527a3a7ee216ea241b20bc34e1046474,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 28.3496
+      value: 5.112463
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 527a3a7ee216ea241b20bc34e1046474,
         type: 3}
@@ -167,7 +184,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 527a3a7ee216ea241b20bc34e1046474,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.5
+      value: -0.50000006
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 527a3a7ee216ea241b20bc34e1046474,
         type: 3}

@@ -28,7 +28,7 @@ public class ShoppingListUI : SingletonClass<ShoppingListUI>
         textMap = new Dictionary<string, Sprite>();
         foreach (var item in resources)
         {
-            textMap.Add(item.name, item);
+            textMap.Add(item.name.ToLower(), item);
         }
         foreach (var item in imagesItems)
         {
@@ -42,8 +42,8 @@ public class ShoppingListUI : SingletonClass<ShoppingListUI>
 
     public void ItemCompleted(string itemName)
     {
-        int index = items.IndexOf(itemName);
-        imagesItems[index].sprite = textMap[itemName.ToLower() + "_ST"];
+        int index = items.IndexOf(itemName.ToLower());
+        imagesItems[index].sprite = textMap[itemName.ToLower() + "_st"];
     }
 
     public void ResetList()
@@ -59,12 +59,13 @@ public class ShoppingListUI : SingletonClass<ShoppingListUI>
     {
         foreach(var (item,count) in list)
         {
-            if(items.Contains(item))
+            string itemL = item.ToLower();
+            if(items.Contains(itemL))
                 continue;
-            items.Add(item);
+            items.Add(itemL);
             Debug.Log("Image items " + imagesItems.Count);
             Debug.Log("TextMap " + textMap.Count);
-            imagesItems[items.Count - 1].sprite = textMap[item.ToLower()];
+            imagesItems[items.Count - 1].sprite = textMap[itemL];
             imagesQuantity[items.Count - 1].sprite = spritesForQuantities[count-1];
             imagesItems[items.Count - 1].gameObject.SetActive(true);
             imagesQuantity[items.Count - 1].gameObject.SetActive(true);

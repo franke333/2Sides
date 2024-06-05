@@ -77,7 +77,7 @@ public class TriggerSourceAudio : MonoBehaviour, IInteractable
 
     private void Update()
     {
-        if (Vector3.Distance(_player.transform.position,transform.position) > range)
+        if (Vector3.Distance(Camera.main.transform.position,transform.position) > range)
         {
             if (_audioSource.isPlaying)
             {
@@ -91,7 +91,7 @@ public class TriggerSourceAudio : MonoBehaviour, IInteractable
             _audioSource.Play();
         }
 
-        float applyTrigger = math.lerp(0,maxTriggerPerSecond,1-Vector3.Distance(_player.transform.position,transform.position)/range);
+        float applyTrigger = math.lerp(0,maxTriggerPerSecond,1-Vector3.Distance(Camera.main.transform.position,transform.position)/range);
         TriggerMeter.Instance.ChangeValue(applyTrigger * Time.deltaTime);
     }
 

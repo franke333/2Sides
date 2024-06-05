@@ -70,7 +70,7 @@ public class AudioManager : SingletonClass<AudioManager>
         _lostChildAnnouncmentSource = gameObject.AddComponent<AudioSource>();
         _lostChildAnnouncmentSource.clip = lostChildAnnouncment;
 
-        StartCoroutine(PlayLostChildAndScheduleNewOne());
+        //StartCoroutine(PlayLostChildAndScheduleNewOne());
 
         _sfxPool = new AudioSource[poolSize];
         for (int i = 0; i < poolSize; i++)
@@ -165,7 +165,7 @@ public class AudioManager : SingletonClass<AudioManager>
         //swap
         _escalatingAmbientSource.Stop();
         _escalatingAmbientSource.clip = newClip;
-        _escalatingAmbientSource.time = time;
+        _escalatingAmbientSource.time = Mathf.Clamp(time,0,newClip.length-0.01f);
         _escalatingAmbientSource.Play();
     }
 

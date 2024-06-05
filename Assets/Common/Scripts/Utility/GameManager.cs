@@ -14,6 +14,8 @@ public class GameManager : SingletonClass<GameManager>
 
     [SerializeField] TextMeshProUGUI Timer;
 
+    [SerializeField] GameObject PauseMenu;
+
     SecurityManager _sm;
     bool _gameOver = false;
 
@@ -30,6 +32,10 @@ public class GameManager : SingletonClass<GameManager>
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            OpenMenu();
+        }
         if (CurrentTime > 0 && !_gameOver)
         {
             CurrentTime -= 1 * Time.deltaTime;
@@ -91,5 +97,21 @@ public class GameManager : SingletonClass<GameManager>
         Timer.color = color;
         yield return new WaitForSeconds(2);
         Timer.color = originalColor;
+    }
+
+    public void OpenMenu()
+    {
+        PauseMenu.SetActive(true);
+        //unlock mouse
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        Time.timeScale = 0;
+    }
+
+    public void LockMouse()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        Time.timeScale = 1;
     }
 }

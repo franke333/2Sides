@@ -54,6 +54,7 @@ MonoBehaviour:
   _fallToTheGroundClip: {fileID: 8300000, guid: 029064c762f7a634089615b42600f9ff,
     type: 3}
   _putInCartClip: {fileID: 8300000, guid: d76fc5ff324f6224086a43c56886311e, type: 3}
+  pickUp: {fileID: 0}
   _baceCooldown: 1
 --- !u!54 &1734905065596612328
 Rigidbody:
@@ -99,7 +100,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
@@ -121,10 +122,10 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.096066475, y: 0.35, z: 0.11392975}
-  m_Center: {x: 0, y: 0.17, z: 0}
+  m_Size: {x: 1.56, y: 0.21, z: 0.6}
+  m_Center: {x: 0, y: 0.12, z: 0}
 --- !u!135 &9158996619309944317
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -162,17 +163,17 @@ PrefabInstance:
     - target: {fileID: 1074227407990150176, guid: 1a3ebd2bce325724299bf9748a6fadb5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.9727137
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1074227407990150176, guid: 1a3ebd2bce325724299bf9748a6fadb5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.3140002
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1074227407990150176, guid: 1a3ebd2bce325724299bf9748a6fadb5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.27335
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1074227407990150176, guid: 1a3ebd2bce325724299bf9748a6fadb5,
         type: 3}
@@ -182,17 +183,17 @@ PrefabInstance:
     - target: {fileID: 1074227407990150176, guid: 1a3ebd2bce325724299bf9748a6fadb5,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1074227407990150176, guid: 1a3ebd2bce325724299bf9748a6fadb5,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1074227407990150176, guid: 1a3ebd2bce325724299bf9748a6fadb5,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1074227407990150176, guid: 1a3ebd2bce325724299bf9748a6fadb5,
         type: 3}
