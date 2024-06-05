@@ -125,6 +125,8 @@ public class AudioManager : SingletonClass<AudioManager>
 
     private void Update()
     {
+        UpdateVolumes();
+
         UpdateEscalatingAmbient();
         if(Input.GetKeyDown(KeyCode.M))
         {
