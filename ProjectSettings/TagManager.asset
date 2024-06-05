@@ -12,6 +12,7 @@ TagManager:
   - Security
   - PatrolPoint
   - Honey
+  - Water
   layers:
   - Default
   - TransparentFX

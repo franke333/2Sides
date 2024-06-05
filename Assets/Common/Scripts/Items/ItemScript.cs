@@ -5,6 +5,7 @@ using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class ItemScript : MonoBehaviour, IInteractable
 {
@@ -19,7 +20,6 @@ public class ItemScript : MonoBehaviour, IInteractable
     AudioClip _fallToTheGroundClip;
     [SerializeField]
     AudioClip _putInCartClip;
-    AudioSource _source;
     Rigidbody _rb;
 
     public PickUpScript pickUp;
@@ -47,8 +47,6 @@ public class ItemScript : MonoBehaviour, IInteractable
         _playerCameraScript = FindObjectOfType<PlayerCameraScript>();
 
         gameObject.AddComponent<HittingGroundSusScript>();
-        _source = gameObject.AddComponent<AudioSource>();
-        _source.spatialBlend = AudioManager.Instance._3dSpatialBlendForItemSFX;
         _rb = GetComponent<Rigidbody>();
 
         _cooldown = _baceCooldown;
@@ -107,21 +105,14 @@ public class ItemScript : MonoBehaviour, IInteractable
 
     public void PlaySoundOnGround()
     {
-        if (_source.isPlaying)
-            return;
         float velocity = Mathf.Max(_lastVelocity, _rb.velocity.magnitude);
-        _source.volume = Mathf.Clamp(velocity/ AudioManager.Instance._minimalVelocityForPlayingHitSound, 0, 1);
-        _source.clip = _fallToTheGroundClip;
-        _source.Play();
+        float volume = Mathf.Clamp(velocity / AudioManager.Instance._minimalVelocityForPlayingHitSound, 0, 1);
+        AudioManager.Instance.PlaySoundAt(_fallToTheGroundClip, transform.position, volume);
     }
 
     public void PlaySoundInCart()
     {
-        if (_source.isPlaying)
-            return;
-        _source.volume = 1;
-        _source.clip = _putInCartClip;
-        _source.Play();
+        AudioManager.Instance.PlaySoundAt(_putInCartClip, transform.position, 1);
     }
 
     public void Touch(bool value, Transform h)

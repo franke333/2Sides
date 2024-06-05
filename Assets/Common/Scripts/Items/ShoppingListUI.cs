@@ -46,6 +46,15 @@ public class ShoppingListUI : SingletonClass<ShoppingListUI>
         imagesItems[index].sprite = textMap[itemName.ToLower() + "_ST"];
     }
 
+    public void ResetList()
+    {
+        foreach(var item in items)
+        {
+            int index = items.IndexOf(item);
+            imagesItems[index].sprite = textMap[item.ToLower()];
+        }
+    }
+
     public void UpdateList(Dictionary<string, int> list)
     {
         foreach(var (item,count) in list)

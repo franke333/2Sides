@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ShoppingList : SingletonClass<ShoppingList>
@@ -9,6 +10,8 @@ public class ShoppingList : SingletonClass<ShoppingList>
     public bool HasAllItems = false;
     private bool hasReachedCheckPoint = false;
     private bool checkCart = false;
+
+    private List<GameObject> objectsInCart = new List<GameObject>();
 
     public List<string> items = new List<string>();
 
@@ -122,7 +125,7 @@ public class ShoppingList : SingletonClass<ShoppingList>
             ShoppingListUI.Instance.ItemCompleted(itemScript.itemName);
             GameManager.Instance.AddTime(10f);
         }
-
+        objectsInCart.Add(itemScript.gameObject);
         checkCart = true;
     }
 
@@ -141,6 +144,34 @@ public class ShoppingList : SingletonClass<ShoppingList>
             }
             itemscript.PlaySoundInCart();
         }
+    }
+
+    public void RemoveAllItemsFromCart()
+    {
+        //TODO: Remove all items from cart
+        cart.Clear();
+        HasAllItems = false;
+        hasReachedCheckPoint = false;
+        ShoppingListUI.Instance.ResetList();
+        foreach (var item in objectsInCart)
+        {
+            foreach (var mr in item.GetComponentsInChildren<MeshRenderer>())
+                mr.material.color = Color.black;
+            StartCoroutine(ShootItem(item));
+        }
+        objectsInCart.Clear();
+    }
+
+    IEnumerator ShootItem(GameObject item)
+    {
+        yield return new WaitForSeconds(Random.Range(0.1f,1f));
+        float angle = Random.Range(0f, 360f) * Mathf.Deg2Rad;
+        Vector3 direction = 2 * transform.up + new Vector3(Mathf.Sin(angle), 0, Mathf.Cos(angle));
+        var rb = item.AddComponent<Rigidbody>();
+        item.transform.SetParent(null);
+        rb.isKinematic = false;
+        rb.mass = 1;
+        rb.AddForce(direction * Random.Range(5,15), ForceMode.Impulse);
     }
 
     private void OnTriggerExit(Collider other)

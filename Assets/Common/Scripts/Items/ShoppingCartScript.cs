@@ -13,6 +13,10 @@ public class ShoppingCartScript : SingletonClass<ShoppingCartScript>, IInteracta
 
     private Rigidbody _rb;
 
+    [SerializeField]
+    float maxAllowedAngle = 45f, timeUntilFlip = 4f;
+    float _currentTimeToFlip = 0f;
+
     private bool _isBeingPushed;
     [SerializeField]
     private float _allowedDistanceFromPlayer = 10f;
@@ -44,6 +48,28 @@ public class ShoppingCartScript : SingletonClass<ShoppingCartScript>, IInteracta
     private void Update()
     {
         //BeingPushedAdvanced();
+        CheckForFlip();
+    }
+
+    private void CheckForFlip()
+    {
+        if (_locked)
+            return;
+        float angle = Vector3.Angle(Vector3.up, transform.up);
+        if(angle < maxAllowedAngle)
+        {
+            _currentTimeToFlip = 0;
+            return;
+        }
+        _currentTimeToFlip += Time.deltaTime;
+        if(_currentTimeToFlip < timeUntilFlip)
+        {
+            return;
+        }
+
+        _currentTimeToFlip = 0;
+        DoAFlip(true);
+
     }
 
     //Oh god this needs to be refactored
@@ -57,13 +83,18 @@ public class ShoppingCartScript : SingletonClass<ShoppingCartScript>, IInteracta
         _locked = false;
     }
 
-    public void DoAFlip()
+    public void DoAFlip(bool keepItemsLocked = false)
     {
         if (_locked)
             return;
         _locked = true;
         //deattach player or he will be reaching outer space
         BeingPushedSimple(false);
+
+        GameManager.Instance.RemoveTime(5);
+
+        if(!keepItemsLocked)
+            ShoppingList.Instance.RemoveAllItemsFromCart();
 
         Invoke("Unlock", 1f);
 

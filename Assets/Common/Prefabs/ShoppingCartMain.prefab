@@ -278,6 +278,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _handleGO: {fileID: 2867881284357862283}
+  maxAllowedAngle: 45
+  timeUntilFlip: 4
   _allowedDistanceFromPlayer: 5
   _joint: {fileID: 0}
   MaxRotationSpeed: 4

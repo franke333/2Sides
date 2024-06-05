@@ -14,6 +14,10 @@ public class AudioManager : SingletonClass<AudioManager>
     private AudioSource _escalatingAmbientSource;
 
     [Header("SFX")]
+    public int poolSize = 32;
+    private int _currentPoolIndex = 0;
+    private AudioSource[] _sfxPool;
+
     public AudioClip timeAdded;
     public AudioClip timeRemoved;
     public AudioClip shoppingListUpdated;
@@ -67,6 +71,26 @@ public class AudioManager : SingletonClass<AudioManager>
         _lostChildAnnouncmentSource.clip = lostChildAnnouncment;
 
         StartCoroutine(PlayLostChildAndScheduleNewOne());
+
+        _sfxPool = new AudioSource[poolSize];
+        for (int i = 0; i < poolSize; i++)
+        {
+            _sfxPool[i] = new GameObject("SFXSource").AddComponent<AudioSource>();
+            _sfxPool[i].transform.parent = transform;
+            _sfxPool[i].spatialBlend = _3dSpatialBlendForItemSFX;
+        }
+    }
+
+    public void PlaySoundAt(AudioClip clip, Vector3 position, float atVolume)
+    {
+        _currentPoolIndex = (_currentPoolIndex + 1) % poolSize;
+        if (_sfxPool[_currentPoolIndex].isPlaying)
+            return;
+
+        _sfxPool[_currentPoolIndex].volume = atVolume;
+        _sfxPool[_currentPoolIndex].transform.position = position;
+        _sfxPool[_currentPoolIndex].clip = clip;
+        _sfxPool[_currentPoolIndex].Play();
     }
 
     private IEnumerator PlayLostChildAndScheduleNewOne()

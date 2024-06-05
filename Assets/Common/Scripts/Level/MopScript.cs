@@ -18,6 +18,10 @@ public class MopScript : MonoBehaviour, IInteractable
             Destroy(other.gameObject);
             PlayerController.Instance.RemoveSpeedModifier("Honey");
         }
+        if (other.gameObject.CompareTag("Water"))
+        {
+            Destroy(other.gameObject);
+        }
     }
 
     public void HoverOver()
