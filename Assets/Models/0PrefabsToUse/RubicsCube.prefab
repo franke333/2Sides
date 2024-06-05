@@ -123,7 +123,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.10535693, y: 0.10138823, z: 0.10723877}
+  m_Size: {x: 0.22, y: 0.22, z: 0.22}
   m_Center: {x: 0.000857234, y: 0.0013275817, z: -0.00019454956}
 --- !u!135 &1269507898833462471
 SphereCollider:
