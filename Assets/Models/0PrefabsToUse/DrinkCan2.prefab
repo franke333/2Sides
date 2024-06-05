@@ -50,11 +50,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 539414584b4621b419e94b491da7261d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: DrinkCan
+  itemName: SodaCan
   throwForce: 1000
   _fallToTheGroundClip: {fileID: 8300000, guid: 0f91f7b89d402414d809b45ee9c799fb,
     type: 3}
   _putInCartClip: {fileID: 8300000, guid: d76fc5ff324f6224086a43c56886311e, type: 3}
+  pickUp: {fileID: 0}
   _baceCooldown: 1
 --- !u!54 &2961855155845772637
 Rigidbody:
