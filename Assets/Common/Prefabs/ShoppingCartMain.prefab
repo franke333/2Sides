@@ -265,6 +265,60 @@ MonoBehaviour:
   - Bread
   - Cheese
   - Banana
+  - Alcohol
+  - Baguette
+  - BananaBread
+  - Bun
+  - Can
+  - Candies
+  - Candy
+  - CandyCane
+  - Carrot
+  - Casserole
+  - Chips
+  - Chocolate
+  - Cookies
+  - Croissant
+  - Cucumber
+  - Cupcake
+  - Deodorant
+  - Detergent
+  - DetergentBottle
+  - DetergentPowder
+  - DetergentSpray
+  - Donut
+  - DonutFilled
+  - SodaCan
+  - Eggplant
+  - Fish
+  - FryingPan
+  - Grapes
+  - Gummybear
+  - Ham
+  - Lemon
+  - Lime
+  - Lollipop
+  - Magazine
+  - Orange
+  - Pan
+  - PaperTowel
+  - Pear
+  - Pepper
+  - Piano
+  - Postcard
+  - Potato
+  - Pringles
+  - Pumpkin
+  - Radish
+  - Toy
+  - Salami
+  - Tangerine
+  - Tomato
+  - BottledWater
+  - Soda
+  - Watermelon
+  - Xylophone
+  - Yoghurt
 --- !u!114 &4579587916307152466
 MonoBehaviour:
   m_ObjectHideFlags: 0

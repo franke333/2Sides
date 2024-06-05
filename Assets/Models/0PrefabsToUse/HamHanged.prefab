@@ -48,11 +48,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 539414584b4621b419e94b491da7261d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: HamHanged
+  itemName: Ham
   throwForce: 1000
   _fallToTheGroundClip: {fileID: 8300000, guid: 0c907d3fb47cdaa4fa3bf145577bf373,
     type: 3}
   _putInCartClip: {fileID: 8300000, guid: ee2910755ab336e47ab4543b45443da9, type: 3}
+  pickUp: {fileID: 0}
   _baceCooldown: 1
 --- !u!54 &6105542417315175893
 Rigidbody:
