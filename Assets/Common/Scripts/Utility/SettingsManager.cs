@@ -16,14 +16,8 @@ public class SettingsManager : PersistentSingletonClass<SettingsManager>
 
     public string GetRandomTitleQuote()
     {
-        if(Random.value > 0.5f)
-        {
-            return quotes[Random.Range(0, quotes.Count)];
-        }
-        else
-        {
-            return tips[Random.Range(0, tips.Count)];
-        }
+        return quotes[Random.Range(0, quotes.Count)];
+
     }
 
     public string GetRandomLoseScreenTip()
