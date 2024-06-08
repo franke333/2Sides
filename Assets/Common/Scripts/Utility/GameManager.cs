@@ -13,7 +13,8 @@ public class GameManager : SingletonClass<GameManager>
 
 
     [SerializeField] TextMeshProUGUI Timer;
-
+    [SerializeField] List<ConfettiScript> tutorialConfettis;
+    [SerializeField] GameObject tutorialCongratsText;
     [SerializeField] GameObject PauseMenu;
 
     SecurityManager _sm;
@@ -83,11 +84,23 @@ public class GameManager : SingletonClass<GameManager>
     {
         if(tutorial)
         {
-            SceneManager.LoadScene("Title Screen");
+            foreach (var item in tutorialConfettis)
+            {
+                item.active = true;
+            }
+            tutorialCongratsText.SetActive(true);
+            //after 5 seconds load the next scene
+            StartCoroutine(LoadMainMenu());
             return;
         }
         //WinScene.Instance.EndTime = startingTime - CurrentTime;
         SceneManager.LoadScene("WinScene");
+    }
+
+    IEnumerator LoadMainMenu()
+    {
+        yield return new WaitForSeconds(8);
+        SceneManager.LoadScene("Title Screen");
     }
 
     public float GetTime() => CurrentTime;

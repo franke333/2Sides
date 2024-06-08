@@ -9,4 +9,25 @@ public class SettingsManager : PersistentSingletonClass<SettingsManager>
     public float MasterVolume = 1f;
 
     public float MouseSensitivity = 1f;
+
+
+    public List<string> quotes = new List<string>();
+    public List<string> tips = new List<string>();
+
+    public string GetRandomTitleQuote()
+    {
+        if(Random.value > 0.5f)
+        {
+            return quotes[Random.Range(0, quotes.Count)];
+        }
+        else
+        {
+            return tips[Random.Range(0, tips.Count)];
+        }
+    }
+
+    public string GetRandomLoseScreenTip()
+    {
+        return tips[Random.Range(0, tips.Count)];
+    }
 }

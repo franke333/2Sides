@@ -41,8 +41,8 @@ public class PlayerCameraScript : SingletonClass<PlayerCameraScript>
 
         xRotation = Mathf.Clamp(xRotation, -xClamp, xClamp);
         transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
-        //_body.transform.rotation = Quaternion.Euler(0, yRotation, 0);
-        _bodyRB.MoveRotation(Quaternion.Euler(0, yRotation, 0));
+        _body.transform.rotation = Quaternion.Euler(0, yRotation, 0);
+        //_bodyRB.MoveRotation(Quaternion.Euler(0, yRotation, 0));
         camera.transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         camera.transform.position = _cameraPoint.transform.position;
 
@@ -51,6 +51,6 @@ public class PlayerCameraScript : SingletonClass<PlayerCameraScript>
 
     private void FixedUpdate()
     {
-        _bodyRB.MoveRotation(Quaternion.Euler(0, yRotation, 0));
+
     }
 }
