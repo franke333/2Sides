@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7348989878371491352}
   - component: {fileID: 8775774792500182417}
   - component: {fileID: 8964933135934005371}
+  - component: {fileID: 8417650835499015314}
   m_Layer: 5
   m_Name: Quote Text
   m_TagString: Untagged
@@ -157,3 +158,17 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8417650835499015314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8650690974425178236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af82b101976dce040801f32cd455135e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tipText: {fileID: 8775774792500182417}
+  includeQuotes: 1
