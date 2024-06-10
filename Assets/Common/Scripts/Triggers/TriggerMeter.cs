@@ -25,7 +25,7 @@ public class TriggerMeter : IMeter<TriggerMeter>
         {
             ChangeValue(25);
         }
-        _vignette.intensity.value = _vignetteCurve.Evaluate(_currentValue / _maxValue);
+        _vignette.intensity.value = _vignetteCurve.Evaluate(_currentValue / _maxValue) * 0.75f + 0.25f;
     }
 
     protected override void OnTrigger()

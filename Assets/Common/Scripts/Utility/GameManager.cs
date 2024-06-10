@@ -89,6 +89,7 @@ public class GameManager : SingletonClass<GameManager>
                 item.active = true;
             }
             tutorialCongratsText.SetActive(true);
+            AudioManager.Instance.PlayTutorialComplete();
             //after 5 seconds load the next scene
             StartCoroutine(LoadMainMenu());
             return;

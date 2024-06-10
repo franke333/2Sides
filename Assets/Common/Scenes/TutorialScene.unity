@@ -7603,6 +7603,7 @@ MonoBehaviour:
   MusicVolume: 1
   MasterVolume: 1
   MouseSensitivity: 1
+  EndTime: 0
   quotes: []
   tips: []
 --- !u!4 &377721413 stripped
@@ -39622,12 +39623,13 @@ MonoBehaviour:
   escalatingAmbients: []
   escalatingAmbientTimes: []
   poolSize: 32
-  timeAdded: {fileID: 0}
-  timeRemoved: {fileID: 0}
-  shoppingListUpdated: {fileID: 0}
-  throwItemSFX: {fileID: 8300000, guid: 179a66b0eb5088947bf51354dc6713f9, type: 3}
+  timeAdded: {fileID: 8300000, guid: 69afcc1c14a85fd4ebdd829f8995dd7f, type: 3}
+  timeRemoved: {fileID: 8300000, guid: a14605f66c9dc2146920ade63a1987ab, type: 3}
+  shoppingListUpdated: {fileID: 8300000, guid: 179a66b0eb5088947bf51354dc6713f9, type: 3}
+  throwItemSFX: {fileID: 8300000, guid: dda2cf19fadc342428e9a42b9d0153a1, type: 3}
   securityAlertedSFX: {fileID: 8300000, guid: 22f17a161f9eafc40ada40fd24101bdb, type: 3}
   lostChildAnnouncment: {fileID: 0}
+  tutorialComplete: {fileID: 8300000, guid: 2005b16100b53a24593e3492f2ef2cbd, type: 3}
   _minimalVelocityForPlayingHitSound: 3
   _3dSpatialBlendForItemSFX: 1
 --- !u!1 &1820396070

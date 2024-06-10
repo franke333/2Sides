@@ -24,6 +24,7 @@ public class AudioManager : SingletonClass<AudioManager>
     public AudioClip throwItemSFX;
     public AudioClip securityAlertedSFX;
     public AudioClip lostChildAnnouncment;
+    public AudioClip tutorialComplete;
 
     private AudioSource _timeAddedSource;
     private AudioSource _timeRemovedSource;
@@ -31,6 +32,7 @@ public class AudioManager : SingletonClass<AudioManager>
     private AudioSource _throwItemSFXSource;
     private AudioSource _securityAlertedSFXSource;
     private AudioSource _lostChildAnnouncmentSource;
+    private AudioSource _tutorialCompleteSource;
 
     [Header("GLobal Settings")]
     public float _minimalVelocityForPlayingHitSound = 0.5f;
@@ -70,6 +72,9 @@ public class AudioManager : SingletonClass<AudioManager>
         _lostChildAnnouncmentSource = gameObject.AddComponent<AudioSource>();
         _lostChildAnnouncmentSource.clip = lostChildAnnouncment;
 
+        _tutorialCompleteSource = gameObject.AddComponent<AudioSource>();
+        _tutorialCompleteSource.clip = tutorialComplete;
+
         //StartCoroutine(PlayLostChildAndScheduleNewOne());
 
         _sfxPool = new AudioSource[poolSize];
@@ -95,6 +100,7 @@ public class AudioManager : SingletonClass<AudioManager>
         _throwItemSFXSource.volume = sfXVolume;
         _securityAlertedSFXSource.volume = sfXVolume;
         _lostChildAnnouncmentSource.volume = sfXVolume;
+        _tutorialCompleteSource.volume = sfXVolume;
     }
 
     public void PlaySoundAt(AudioClip clip, Vector3 position, float atVolume)
@@ -192,6 +198,11 @@ public class AudioManager : SingletonClass<AudioManager>
     public void PlaySecurityAlerted()
     {
         _securityAlertedSFXSource.Play();
+    }
+
+    public void PlayTutorialComplete()
+    {
+        _tutorialCompleteSource.Play();
     }
 
 }
