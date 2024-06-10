@@ -93,7 +93,9 @@ public class GameManager : SingletonClass<GameManager>
             StartCoroutine(LoadMainMenu());
             return;
         }
-        //WinScene.Instance.EndTime = startingTime - CurrentTime;
+
+        SettingsManager.Instance.EndTime = CurrentTime;
+
         SceneManager.LoadScene("WinScene");
     }
 

@@ -10,6 +10,8 @@ public class SettingsManager : PersistentSingletonClass<SettingsManager>
 
     public float MouseSensitivity = 1f;
 
+    public float EndTime;
+
 
     public List<string> quotes = new List<string>();
     public List<string> tips = new List<string>();
