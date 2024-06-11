@@ -132,6 +132,7 @@ public class ItemScript : MonoBehaviour, IInteractable
         }
         else
         {
+            _cooldown = _baceCooldown;
             transform.parent = null;
             transform.GetComponent<Rigidbody>().isKinematic = false;
             _isBeingHeld = false;
